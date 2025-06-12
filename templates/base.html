@@ -1,8 +1,48 @@
 <!doctype html>
 <html lang="en">
-<head>
-    <meta charset="utf-8">
+<head>    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Critical CSS for icons - Inlined for fastest loading -->
+    <style>
+        /* Critical icon styles */
+        .fas, .fab, .fa, [class^="fa-"], [class*=" fa-"] {
+            display: inline-block !important;
+            text-rendering: auto;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        /* Ensure icons have proper dimensions */
+        .fa-fw, .icon-fw {
+            width: 1.25em;
+            text-align: center;
+        }
+        
+        /* Basic footer styling to ensure icons display */
+        .footer-section p i,
+        .social-icons a i,
+        .footer-bottom i {
+            display: inline-block !important;
+            margin-right: 8px;
+        }
+        
+        /* Basic colors for icons */
+        .footer-section.locations i.fa-map-marker-alt { color: #e74c3c !important; }
+        .footer-section.contact i.fa-phone { color: #27ae60 !important; }
+        .footer-section.contact i.fa-envelope { color: #3498db !important; }
+        .social-icons a i.fa-instagram { color: #E1306C !important; }
+        .social-icons a i.fa-whatsapp { color: #25D366 !important; }
+        .social-icons a i.fa-snapchat { color: #FFFC00 !important; }
+        .social-icons a i.fa-facebook { color: #1877F2 !important; }
+        .fa-heart { color: #e74c3c !important; }
+    </style><!-- Font Awesome CDN with multiple fallbacks -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-Fo3rlrZj/kNV+O0ssLxvnN1RoJnHWvgEPSH+DsG+Yue/ZkzBZsKAEVPrjNJ+Fx2dhwZ0pQF5XqWCK3GvjI8ffw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Alternate CDN as backup -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.5.0/css/all.css" crossorigin="anonymous">
+    <!-- Custom Icon CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/icons.css') }}">
+    <!-- SVG Fallbacks for critical icons -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/icon-fallbacks.css') }}">
     <meta name="description" content="1313 FOG - Your premium clothing destination with the latest fashion trends for Men, Women, and Kids">
     <meta name="keywords" content="1313 FOG, fashion, clothing, premium, men, women, kids, style">
     <meta name="author" content="1313 FOG">
@@ -11,10 +51,9 @@
     <meta property="og:image" content="{{ url_for('static', filename='assets/hero.jpg', _external=True) }}">
     <meta property="og:url" content="https://www.1313fog.com">
     <meta name="twitter:card" content="summary_large_image">
-    <title>{% block title %}1313 FOG{% endblock %}</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-Fo3rlrZj/kNV+O0ssLxvnN1RoJnHWvgEPSH+DsG+Yue/ZkzBZsKAEVPrjNJ+Fx2dhwZ0pQF5XqWCK3GvjI8ffw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <title>{% block title %}1313 FOG{% endblock %}</title>    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
     <link rel="icon" href="{{ url_for('static', filename='assets/favicon.ico') }}">
     {% block head %}{% endblock %}
 </head>
@@ -38,28 +77,36 @@
     <main>
         {% block content %}{% endblock %}
     </main>
-    
-    <div class="footer-wave">
+      <div class="footer-wave">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 100" preserveAspectRatio="none">
             <path fill="#111" fill-opacity="1" d="M0,32L48,48C96,64,192,96,288,96C384,96,480,64,576,48C672,32,768,32,864,26.7C960,21,1056,11,1152,16C1248,21,1344,43,1392,53.3L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
         </svg>
     </div>
     
-    <footer class="footer">
-        <div class="footer-content">            <div class="footer-section">
-                <h3>Locations</h3>
-                <p><i class="fas fa-map-marker-alt"></i> Bathinda</p>
-                <p><i class="fas fa-map-marker-alt"></i> Barnala</p>
-                <p><i class="fas fa-map-marker-alt"></i> Zira</p>
-                <p><i class="fas fa-map-marker-alt"></i> Kotkapura</p>
-                <p><i class="fas fa-map-marker-alt"></i> Mansa</p>
+    <div class="brand-banner">
+        <div class="banner-content">
+            <div class="banner-text">
+                <h2>1313 FOG</h2>
+                <p>Fashion of Generations</p>
             </div>
-            <div class="footer-section">
-                <h3>Contact</h3>
-                <p><i class="fas fa-phone"></i> +91 98883 69103</p>
-                <p><i class="fas fa-phone"></i> +91 98584 00013</p>
-                <p><i class="fas fa-envelope"></i> info@1313fog.com</p>
-            </div>            <div class="footer-section">
+            <div class="banner-cta">
+                <a href="{{ url_for('offers') }}" class="btn-primary">Shop Now</a>
+            </div>
+        </div>
+    </div>
+    
+    <footer class="footer">        <div class="footer-content">
+            <div class="footer-section locations">                <h3>Locations</h3>                <p><i class="fas fa-map-marker-alt fa-fw icon-location" aria-hidden="true"></i> <span>Bathinda</span></p>
+                <p><i class="fas fa-map-marker-alt fa-fw icon-location" aria-hidden="true"></i> <span>Barnala</span></p>
+                <p><i class="fas fa-map-marker-alt fa-fw icon-location" aria-hidden="true"></i> <span>Zira</span></p>
+                <p><i class="fas fa-map-marker-alt fa-fw icon-location" aria-hidden="true"></i> <span>Kotkapura</span></p>
+                <p><i class="fas fa-map-marker-alt fa-fw icon-location" aria-hidden="true"></i> <span>Mansa</span></p>
+            </div>
+            <div class="footer-section contact">                <h3>Contact</h3>                <p><i class="fas fa-phone fa-fw icon-phone" aria-hidden="true"></i> <span>+91 98883 69103</span></p>
+                <p><i class="fas fa-phone fa-fw icon-phone" aria-hidden="true"></i> <span>+91 98584 00013</span></p>
+                <p><i class="fas fa-envelope fa-fw icon-email" aria-hidden="true"></i> <span>info@1313fog.com</span></p>
+            </div>
+            <div class="footer-section policies">
                 <h3>Customer Policies</h3>
                 <p><a href="#">Return Policy</a></p>
                 <p><a href="#">Refund Policy</a></p>
@@ -67,26 +114,50 @@
                 <p><a href="#">Privacy Policy</a></p>
                 <p><a href="#">Terms & Conditions</a></p>
             </div>
-            <div class="footer-section">
-                <h3>Follow Us on</h3>
-                <div class="social-icons">
-                    <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
-                    <a href="https://wa.me/919888369103" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-                    <a href="https://snapchat.com" target="_blank"><i class="fab fa-snapchat"></i> Snapchat</a>
-                    <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i> Facebook</a>
+            <div class="footer-section social">
+                <h3>Follow Us on</h3>                <div class="social-icons">
+                    <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram fa-fw icon-instagram" aria-hidden="true"></i> <span>Instagram</span></a>
+                    <a href="https://wa.me/919888369103" target="_blank"><i class="fab fa-whatsapp fa-fw icon-whatsapp" aria-hidden="true"></i> <span>WhatsApp</span></a>
+                    <a href="https://snapchat.com" target="_blank"><i class="fab fa-snapchat fa-fw icon-snapchat" aria-hidden="true"></i> <span>Snapchat</span></a>
+                    <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook fa-fw icon-facebook" aria-hidden="true"></i> <span>Facebook</span></a>
                 </div>
             </div>
         </div>        <div class="footer-bottom">
             <p>&copy; 2024 <a href="{{ url_for('home') }}">1313 FOG</a>. All rights reserved.</p>
-            <p class="designer-credit">Website designed with <i class="fas fa-heart"></i> by Premium Designs</p>
+            <p class="designer-credit">Website designed with <i class="fas fa-heart fa-fw icon-heart" aria-hidden="true"></i> by Premium Designs</p>
         </div>
     </footer>
-    
-    <button id="scroll-to-top" aria-label="Scroll to top">
-        <i class="fas fa-arrow-up"></i>
+      <button id="scroll-to-top" aria-label="Scroll to top">
+        <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
     </button>
     
     <script src="{{ url_for('static', filename='js/main.js') }}"></script>
     {% block scripts %}{% endblock %}
+      <!-- Fix for Font Awesome icon loading -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Check if Font Awesome is loaded properly
+            var span = document.createElement('span');
+            span.className = 'fas fa-check';
+            span.style.display = 'none';
+            document.body.appendChild(span);
+            
+            // Check if the icon is rendered properly
+            var isFontAwesomeLoaded = window.getComputedStyle(span, ':before').getPropertyValue('content') !== '';
+            document.body.removeChild(span);
+            
+            // If Font Awesome is not loaded properly, add class for SVG fallback
+            if (!isFontAwesomeLoaded) {
+                document.body.classList.add('use-svg-fallback');
+            }
+            
+            // Force a repaint of all icons
+            document.querySelectorAll('.fas, .fab, .fa, [class^="fa-"], [class*=" fa-"]').forEach(function(icon) {
+                icon.style.display = 'none';
+                void icon.offsetHeight; // Trigger a reflow
+                icon.style.display = 'inline-block';
+            });
+        });
+    </script>
 </body>
 </html>

@@ -1,0 +1,34 @@
+/* Critical CSS for ensuring icon display */
+/* This will be loaded inline in the head to ensure basic styling is available immediately */
+
+/* Critical icon styles */
+.fas, .fab, .fa, [class^="fa-"], [class*=" fa-"] {
+    display: inline-block !important;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Ensure icons have proper dimensions */
+.fa-fw, .icon-fw {
+    width: 1.25em;
+    text-align: center;
+}
+
+/* Basic footer styling to ensure icons display */
+.footer-section p i,
+.social-icons a i,
+.footer-bottom i {
+    display: inline-block !important;
+    margin-right: 8px;
+}
+
+/* Basic colors for icons */
+.footer-section.locations i.fa-map-marker-alt { color: #e74c3c !important; }
+.footer-section.contact i.fa-phone { color: #27ae60 !important; }
+.footer-section.contact i.fa-envelope { color: #3498db !important; }
+.social-icons a i.fa-instagram { color: #E1306C !important; }
+.social-icons a i.fa-whatsapp { color: #25D366 !important; }
+.social-icons a i.fa-snapchat { color: #FFFC00 !important; }
+.social-icons a i.fa-facebook { color: #1877F2 !important; }
+.fa-heart { color: #e74c3c !important; }
