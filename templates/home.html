@@ -1,0 +1,111 @@
+{% extends 'base.html' %}
+{% block title %}Home - 1313 FOG{% endblock %}
+{% block content %}
+<section class="hero">
+    <div class="hero-content">
+        <h1>Welcome to 1313 FOG</h1>
+        <p>Your premium clothing destination</p>
+        <a href="{{ url_for('offers') }}" class="btn-primary">Shop Now</a>
+    </div>
+</section>
+
+<section class="categories">
+    <h2 class="section-title">Shop by Category</h2>
+    <div class="card-grid">
+        <div class="card category-card">
+            <div class="card-image">
+                <img src="{{ url_for('static', filename='assets/men.jpg') }}" alt="Men's Collection" loading="lazy">
+                <div class="card-overlay">
+                    <h3>Men</h3>
+                    <a href="#" class="btn-secondary">View Collection</a>
+                </div>
+            </div>
+        </div>
+        <div class="card category-card">
+            <div class="card-image">
+                <img src="{{ url_for('static', filename='assets/women.jpg') }}" alt="Women's Collection" loading="lazy">
+                <div class="card-overlay">
+                    <h3>Women</h3>
+                    <a href="#" class="btn-secondary">View Collection</a>
+                </div>
+            </div>
+        </div>
+        <div class="card category-card">
+            <div class="card-image">
+                <img src="{{ url_for('static', filename='assets/kids.jpg') }}" alt="Kids Collection" loading="lazy">
+                <div class="card-overlay">
+                    <h3>Kids</h3>
+                    <a href="#" class="btn-secondary">View Collection</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="featured">
+    <h2 class="section-title">Featured Offers</h2>
+    <div class="card-grid">
+        <div class="card offer-card">
+            <div class="offer-badge">New</div>
+            <img src="{{ url_for('static', filename='assets/hero.jpg') }}" alt="Summer Collection" loading="lazy">
+            <div class="card-content">
+                <h3>Summer Collection</h3>
+                <p>Get ready for summer with our latest arrivals</p>
+                <a href="#" class="btn-outline">Discover</a>
+            </div>
+        </div>
+        <div class="card offer-card">
+            <div class="offer-badge">Sale</div>
+            <img src="{{ url_for('static', filename='assets/hero.jpg') }}" alt="Clearance Sale" loading="lazy">
+            <div class="card-content">
+                <h3>Clearance Sale</h3>
+                <p>Up to 50% off on selected items</p>
+                <a href="#" class="btn-outline">Shop Now</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="instagram-gallery">
+    <h2 class="section-title">Our Instagram</h2>
+    <p class="section-subtitle">Follow us @1313fog for more inspiration</p>
+    
+    <div class="gallery-grid">
+        <div class="gallery-item">
+            <img src="{{ url_for('static', filename='assets/hero.jpg') }}" alt="Instagram post" loading="lazy">
+            <div class="gallery-overlay">
+                <a href="#" class="icon-link"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+        <div class="gallery-item">
+            <img src="{{ url_for('static', filename='assets/men.jpg') }}" alt="Instagram post" loading="lazy">
+            <div class="gallery-overlay">
+                <a href="#" class="icon-link"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+        <div class="gallery-item">
+            <img src="{{ url_for('static', filename='assets/women.jpg') }}" alt="Instagram post" loading="lazy">
+            <div class="gallery-overlay">
+                <a href="#" class="icon-link"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+        <div class="gallery-item">
+            <img src="{{ url_for('static', filename='assets/kids.jpg') }}" alt="Instagram post" loading="lazy">
+            <div class="gallery-overlay">
+                <a href="#" class="icon-link"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="newsletter">
+    <div class="newsletter-content">
+        <h2>Stay Updated</h2>
+        <p>Subscribe to our newsletter for the latest updates and offers</p>
+        <form class="newsletter-form">
+            <input type="email" placeholder="Your Email Address" required>
+            <button type="submit" class="btn-primary">Subscribe</button>
+        </form>
+    </div>
+</section>
+{% endblock %}

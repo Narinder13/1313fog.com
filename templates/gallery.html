@@ -1,0 +1,133 @@
+{% extends 'base.html' %}
+{% block title %}Gallery - 1313 FOG{% endblock %}
+{% block content %}
+<section class="page-header">
+    <h1>Our Gallery</h1>
+    <p>Explore our store and collection</p>
+</section>
+
+<section class="gallery-section">
+    <div class="gallery-filter">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="store">Store</button>
+        <button class="filter-btn" data-filter="men">Men</button>
+        <button class="filter-btn" data-filter="women">Women</button>
+        <button class="filter-btn" data-filter="kids">Kids</button>
+    </div>
+    
+    <div class="gallery-container">
+        <!-- Store images -->
+        <div class="gallery-item filter-store">
+            <img src="{{ url_for('static', filename='assets/hero.jpg') }}" alt="Store Front">
+            <div class="gallery-caption">
+                <h3>Our Main Store</h3>
+                <p>Downtown Location</p>
+            </div>
+        </div>
+        
+        <div class="gallery-item filter-store">
+            <img src="{{ url_for('static', filename='assets/hero.jpg') }}" alt="Store Interior">
+            <div class="gallery-caption">
+                <h3>Store Interior</h3>
+                <p>Modern Shopping Experience</p>
+            </div>
+        </div>
+        
+        <!-- Men's Collection -->
+        <div class="gallery-item filter-men">
+            <img src="{{ url_for('static', filename='assets/men.jpg') }}" alt="Men's Collection">
+            <div class="gallery-caption">
+                <h3>Summer Collection</h3>
+                <p>Men's Fashion</p>
+            </div>
+        </div>
+        
+        <div class="gallery-item filter-men">
+            <img src="{{ url_for('static', filename='assets/men.jpg') }}" alt="Men's Formal Wear">
+            <div class="gallery-caption">
+                <h3>Formal Collection</h3>
+                <p>Professional Attire</p>
+            </div>
+        </div>
+        
+        <!-- Women's Collection -->
+        <div class="gallery-item filter-women">
+            <img src="{{ url_for('static', filename='assets/women.jpg') }}" alt="Women's Collection">
+            <div class="gallery-caption">
+                <h3>Spring Collection</h3>
+                <p>Women's Fashion</p>
+            </div>
+        </div>
+        
+        <div class="gallery-item filter-women">
+            <img src="{{ url_for('static', filename='assets/women.jpg') }}" alt="Women's Evening Wear">
+            <div class="gallery-caption">
+                <h3>Evening Collection</h3>
+                <p>Elegant Designs</p>
+            </div>
+        </div>
+        
+        <!-- Kids' Collection -->
+        <div class="gallery-item filter-kids">
+            <img src="{{ url_for('static', filename='assets/kids.jpg') }}" alt="Kids Collection">
+            <div class="gallery-caption">
+                <h3>Kids Collection</h3>
+                <p>Comfortable & Stylish</p>
+            </div>
+        </div>
+        
+        <div class="gallery-item filter-kids">
+            <img src="{{ url_for('static', filename='assets/kids.jpg') }}" alt="Kids School Wear">
+            <div class="gallery-caption">
+                <h3>Back to School</h3>
+                <p>School Essentials</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="lookbook-preview">
+    <div class="lookbook-content">
+        <h2>Our Lookbook</h2>
+        <p>Explore our seasonal collection lookbooks for style inspiration.</p>
+        <a href="#" class="btn-secondary">View Lookbooks</a>
+    </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const galleryItems = document.querySelectorAll('.gallery-item');
+        
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                // Remove active class from all buttons
+                filterBtns.forEach(b => b.classList.remove('active'));
+                
+                // Add active class to clicked button
+                this.classList.add('active');
+                
+                const filterValue = this.getAttribute('data-filter');
+                
+                galleryItems.forEach(item => {
+                    if (filterValue === 'all' || item.classList.contains(`filter-${filterValue}`)) {
+                        item.style.display = 'block';
+                        setTimeout(() => {
+                            item.style.opacity = '1';
+                            item.style.transform = 'scale(1)';
+                        }, 50);
+                    } else {
+                        item.style.opacity = '0';
+                        item.style.transform = 'scale(0.8)';
+                        setTimeout(() => {
+                            item.style.display = 'none';
+                        }, 300);
+                    }
+                });
+            });
+        });
+    });
+</script>
+{% endblock %}
