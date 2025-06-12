@@ -1,5 +1,8 @@
 {% extends 'base.html' %}
 {% block title %}Gallery - 1313 FOG{% endblock %}
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/enhanced-gallery.css') }}">
+{% endblock %}
 {% block content %}
 <section class="page-header">
     <h1>Our Gallery</h1>
@@ -13,6 +16,7 @@
         <button class="filter-btn" data-filter="men">Men</button>
         <button class="filter-btn" data-filter="women">Women</button>
         <button class="filter-btn" data-filter="kids">Kids</button>
+        <button class="filter-btn" data-filter="events">Events</button>
     </div>
     
     <div class="gallery-container">
@@ -60,39 +64,91 @@
         </div>
         
         <div class="gallery-item filter-women">
-            <img src="{{ url_for('static', filename='assets/women.jpg') }}" alt="Women's Evening Wear">
+            <img src="{{ url_for('static', filename='assets/women.jpg') }}" alt="Women's Ethnic Wear">
             <div class="gallery-caption">
-                <h3>Evening Collection</h3>
-                <p>Elegant Designs</p>
+                <h3>Ethnic Collection</h3>
+                <p>Traditional Elegance</p>
             </div>
         </div>
         
         <!-- Kids' Collection -->
         <div class="gallery-item filter-kids">
-            <img src="{{ url_for('static', filename='assets/kids.jpg') }}" alt="Kids Collection">
+            <img src="{{ url_for('static', filename='assets/kids.jpg') }}" alt="Kids' Collection">
             <div class="gallery-caption">
-                <h3>Kids Collection</h3>
-                <p>Comfortable & Stylish</p>
+                <h3>Kids' Collection</h3>
+                <p>Fun and Comfortable</p>
             </div>
         </div>
         
         <div class="gallery-item filter-kids">
-            <img src="{{ url_for('static', filename='assets/kids.jpg') }}" alt="Kids School Wear">
+            <img src="{{ url_for('static', filename='assets/kids.jpg') }}" alt="Kids' Party Wear">
             <div class="gallery-caption">
-                <h3>Back to School</h3>
-                <p>School Essentials</p>
+                <h3>Party Wear</h3>
+                <p>Special Occasions</p>
             </div>
+        </div>
+        
+        <!-- Store Events -->
+        <div class="gallery-item filter-events">
+            <img src="{{ url_for('static', filename='assets/hero.jpg') }}" alt="Fashion Show">
+            <div class="gallery-caption">
+                <h3>Summer Fashion Show</h3>
+                <p>Annual Event</p>
+            </div>
+        </div>
+        
+        <div class="gallery-item filter-events">
+            <img src="{{ url_for('static', filename='assets/hero.jpg') }}" alt="Store Launch">
+            <div class="gallery-caption">
+                <h3>New Store Launch</h3>
+                <p>Expanding Our Presence</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Gallery Tags -->
+    <div class="gallery-tags">
+        <h3>Popular Tags</h3>
+        <div class="tag-cloud">
+            <a href="#" class="tag">Summer</a>
+            <a href="#" class="tag">Winter</a>
+            <a href="#" class="tag">Ethnic</a>
+            <a href="#" class="tag">Casual</a>
+            <a href="#" class="tag">Formal</a>
+            <a href="#" class="tag">Party Wear</a>
+            <a href="#" class="tag">Traditional</a>
+            <a href="#" class="tag">Western</a>
+            <a href="#" class="tag">Accessories</a>
+            <a href="#" class="tag">Kids Wear</a>
+            <a href="#" class="tag">Fashion Show</a>
+            <a href="#" class="tag">Store Events</a>
         </div>
     </div>
 </section>
 
-<section class="lookbook-preview">
-    <div class="lookbook-content">
-        <h2>Our Lookbook</h2>
-        <p>Explore our seasonal collection lookbooks for style inspiration.</p>
-        <a href="#" class="btn-secondary">View Lookbooks</a>
+<!-- Featured Gallery Slider Section -->
+<section class="featured-gallery">
+    <h2>Featured Images</h2>
+    <div class="featured-slider">
+        <div class="featured-slide">
+            <img src="{{ url_for('static', filename='assets/hero.jpg') }}" alt="Featured Image 1">
+        </div>
+        <div class="featured-slide" style="display:none;">
+            <img src="{{ url_for('static', filename='assets/men.jpg') }}" alt="Featured Image 2">
+        </div>
+        <div class="featured-slide" style="display:none;">
+            <img src="{{ url_for('static', filename='assets/women.jpg') }}" alt="Featured Image 3">
+        </div>
+        <div class="featured-slide" style="display:none;">
+            <img src="{{ url_for('static', filename='assets/kids.jpg') }}" alt="Featured Image 4">
+        </div>
+    </div>
+    <div class="slider-controls">
+        <div class="slider-arrow prev-arrow"><i class="fas fa-chevron-left"></i></div>
+        <div class="slider-arrow next-arrow"><i class="fas fa-chevron-right"></i></div>
     </div>
 </section>
+
 {% endblock %}
 
 {% block scripts %}
@@ -128,6 +184,39 @@
                 });
             });
         });
+        
+        // Featured slider functionality
+        const featuredSlides = document.querySelectorAll('.featured-slide');
+        const prevArrow = document.querySelector('.prev-arrow');
+        const nextArrow = document.querySelector('.next-arrow');
+        let currentSlide = 0;
+        
+        function showSlide(index) {
+            featuredSlides.forEach((slide, i) => {
+                slide.style.display = i === index ? 'block' : 'none';
+            });
+        }
+        
+        if (prevArrow && nextArrow) {
+            prevArrow.addEventListener('click', function() {
+                currentSlide = (currentSlide - 1 + featuredSlides.length) % featuredSlides.length;
+                showSlide(currentSlide);
+            });
+            
+            nextArrow.addEventListener('click', function() {
+                currentSlide = (currentSlide + 1) % featuredSlides.length;
+                showSlide(currentSlide);
+            });
+            
+            // Auto slide
+            setInterval(function() {
+                currentSlide = (currentSlide + 1) % featuredSlides.length;
+                showSlide(currentSlide);
+            }, 5000);
+        }
+        
+        // Initialize first slide
+        showSlide(0);
     });
 </script>
 {% endblock %}

@@ -1,5 +1,8 @@
 {% extends 'base.html' %}
 {% block title %}About Us - 1313 FOG{% endblock %}
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/enhanced-about.css') }}">
+{% endblock %}
 {% block content %}
 <section class="page-header">
     <h1>About Us</h1>
@@ -67,25 +70,37 @@
 <section class="team">
     <h2 class="section-title">Our Team</h2>
     <div class="card-grid">
-        <div class="card team-card">
+        <div class="card team-card fade-in">
             <img src="{{ url_for('static', filename='assets/hero.jpg') }}" alt="Team Member">
             <div class="card-content">
                 <h3>John Doe</h3>
                 <p>Founder & CEO</p>
+                <div class="social-links">
+                    <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                </div>
             </div>
         </div>
-        <div class="card team-card">
+        <div class="card team-card fade-in">
             <img src="{{ url_for('static', filename='assets/hero.jpg') }}" alt="Team Member">
             <div class="card-content">
                 <h3>Jane Smith</h3>
                 <p>Creative Director</p>
+                <div class="social-links">
+                    <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                </div>
             </div>
         </div>
-        <div class="card team-card">
+        <div class="card team-card fade-in">
             <img src="{{ url_for('static', filename='assets/hero.jpg') }}" alt="Team Member">
             <div class="card-content">
                 <h3>Mike Johnson</h3>
                 <p>Head of Operations</p>
+                <div class="social-links">
+                    <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                </div>
             </div>
         </div>
     </div>
@@ -98,6 +113,32 @@
             <div class="testimonial-content">
                 <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
                 <p class="testimonial-text">1313 FOG has completely transformed my wardrobe. The quality of clothes and the customer service is exceptional. I always find something I love when I visit their store.</p>
+                <div class="testimonial-author">
+                    <img src="{{ url_for('static', filename='assets/hero.jpg') }}" alt="Customer" class="testimonial-image">
+                    <div>
+                        <h4>Sarah Johnson</h4>
+                        <p>Regular Customer</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="testimonial-slide">
+            <div class="testimonial-content">
+                <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                <p class="testimonial-text">The variety and quality of products at 1313 FOG is unmatched. Their seasonal collections always have the latest trends, and the staff is incredibly helpful.</p>
+                <div class="testimonial-author">
+                    <img src="{{ url_for('static', filename='assets/hero.jpg') }}" alt="Customer" class="testimonial-image">
+                    <div>
+                        <h4>Michael Clarke</h4>
+                        <p>Premium Member</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="testimonial-slide">
+            <div class="testimonial-content">
+                <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                <p class="testimonial-text">I've been shopping at 1313 FOG for years. Their commitment to quality and customer satisfaction is what keeps me coming back. Best fashion retailer in the region!</p>
                 <div class="testimonial-author">
                     <div class="author-rating">
                         <i class="fas fa-star"></i>

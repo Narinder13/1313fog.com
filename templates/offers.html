@@ -1,14 +1,45 @@
 {% extends 'base.html' %}
 {% block title %}Offers - 1313 FOG{% endblock %}
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/enhanced-offers.css') }}">
+{% endblock %}
 {% block content %}
 <section class="page-header">
     <h1>Current Offers</h1>
     <p>Exclusive deals and promotions for our valued customers</p>
 </section>
 
+<!-- Category tabs section -->
+<section class="offer-categories">
+    <h2>Browse Offers By Category</h2>
+    <div class="category-tabs">
+        <div class="category-tab active" data-category="all">All Offers</div>
+        <div class="category-tab" data-category="men">Men</div>
+        <div class="category-tab" data-category="women">Women</div>
+        <div class="category-tab" data-category="kids">Kids</div>
+        <div class="category-tab" data-category="accessories">Accessories</div>
+    </div>
+</section>
+
+<!-- Special offer highlight -->
+<section class="special-offer-highlight">
+    <div class="special-offer-content">
+        <h2>Summer End Sale</h2>
+        <p>Use this exclusive promo code to get an additional 10% off on all summer collection items</p>
+        <div class="promo-code">SUMMER10</div>
+        <div class="countdown-container">
+            <p>Offer ends in:</p>
+            <div class="countdown-timer" id="countdown-timer">
+                <!-- Will be filled by JavaScript -->
+            </div>
+        </div>
+        <a href="#" class="special-offer-cta">Shop Now</a>
+    </div>
+</section>
+
 <section class="offers-section">
     <div class="card-grid">
-        <div class="card offer-card premium">
+        <div class="card offer-card premium men">
             <div class="offer-badge">Limited</div>
             <img src="{{ url_for('static', filename='assets/hero.jpg') }}" alt="Summer Sale">
             <div class="card-content">
@@ -20,7 +51,7 @@
             </div>
         </div>
         
-        <div class="card offer-card premium">
+        <div class="card offer-card premium women">
             <div class="offer-badge">Hot Deal</div>
             <img src="{{ url_for('static', filename='assets/hero.jpg') }}" alt="Weekend Special">
             <div class="card-content">
@@ -32,7 +63,7 @@
             </div>
         </div>
         
-        <div class="card offer-card premium">
+        <div class="card offer-card premium men women">
             <div class="offer-badge">New</div>
             <img src="{{ url_for('static', filename='assets/hero.jpg') }}" alt="Premium Collection">
             <div class="card-content">
@@ -44,31 +75,61 @@
             </div>
         </div>
         
-        <div class="card offer-card premium">
+        <div class="card offer-card premium kids">
             <div class="offer-badge">Clearance</div>
             <img src="{{ url_for('static', filename='assets/hero.jpg') }}" alt="End of Season">
             <div class="card-content">
                 <h3>End of Season Sale</h3>
-                <p class="offer-description">Last chance to grab your favorite styles</p>
+                <p class="offer-description">Last chance to grab your favorite items at reduced prices</p>
                 <p class="offer-discount">Up to 50% Off</p>
                 <p class="offer-period">While stocks last</p>
                 <a href="#" class="btn-primary">Shop Now</a>
             </div>
         </div>
+        
+        <div class="card offer-card premium accessories">
+            <div class="offer-badge">Exclusive</div>
+            <img src="{{ url_for('static', filename='assets/hero.jpg') }}" alt="Membership Offer">
+            <div class="card-content">
+                <h3>Member-Only Deals</h3>
+                <p class="offer-description">Special discounts for our premium membership holders</p>
+                <p class="offer-discount">Extra 15% Off</p>
+                <p class="offer-period">For premium members</p>
+                <a href="#" class="btn-primary">Join Now</a>
+            </div>
+        </div>
+        
+        <div class="card offer-card premium accessories">
+            <div class="offer-badge">Gift</div>
+            <img src="{{ url_for('static', filename='assets/hero.jpg') }}" alt="Gift Cards">
+            <div class="card-content">
+                <h3>Gift Cards</h3>
+                <p class="offer-description">The perfect gift for any occasion. Available in various denominations.</p>
+                <p class="offer-discount">Get 5% Extra</p>
+                <p class="offer-period">Limited time offer</p>
+                <a href="#" class="btn-primary">Purchase Now</a>
+            </div>
+        </div>
     </div>
 </section>
 
-<section class="membership">
-    <div class="membership-content">
-        <h2>Join Our Premium Membership</h2>
-        <p>Sign up for our premium membership program and enjoy exclusive benefits:</p>
-        <ul>
-            <li>Early access to new collections</li>
-            <li>Members-only discounts and offers</li>
-            <li>Free shipping on all orders</li>
-            <li>Personalized styling assistance</li>
-        </ul>
-        <a href="#" class="btn-secondary">Sign Up Now</a>
+<!-- Newsletter section -->
+<section class="newsletter-section">
+    <div class="newsletter-container">
+        <h2>Subscribe to Our Newsletter</h2>
+        <p>Be the first to know about our special offers, new arrivals, and upcoming events. Subscribe now and get a 10% discount on your next purchase!</p>
+        <form class="newsletter-form">
+            <input type="email" placeholder="Enter your email" required>
+            <button type="submit">Subscribe</button>
+        </form>
     </div>
 </section>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Additional offer page specific JavaScript can be added here
+    });
+</script>
 {% endblock %}

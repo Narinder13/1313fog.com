@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en">
-<head>    <meta charset="utf-8">
+<head>
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Critical CSS for icons - Inlined for fastest loading -->
     <style>
@@ -35,59 +36,97 @@
         .social-icons a i.fa-snapchat { color: #FFFC00 !important; }
         .social-icons a i.fa-facebook { color: #1877F2 !important; }
         .fa-heart { color: #e74c3c !important; }
-    </style><!-- Font Awesome CDN with multiple fallbacks -->
+    </style>
+    
+    <!-- Font Awesome CDN with multiple fallbacks -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-Fo3rlrZj/kNV+O0ssLxvnN1RoJnHWvgEPSH+DsG+Yue/ZkzBZsKAEVPrjNJ+Fx2dhwZ0pQF5XqWCK3GvjI8ffw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
     <!-- Alternate CDN as backup -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.5.0/css/all.css" crossorigin="anonymous">
+    
     <!-- Custom Icon CSS -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/icons.css') }}">
+    
     <!-- SVG Fallbacks for critical icons -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/icon-fallbacks.css') }}">
-    <meta name="description" content="1313 FOG - Your premium clothing destination with the latest fashion trends for Men, Women, and Kids">
-    <meta name="keywords" content="1313 FOG, fashion, clothing, premium, men, women, kids, style">
-    <meta name="author" content="1313 FOG">
-    <meta property="og:title" content="{% block ogtitle %}1313 FOG - Premium Clothing{% endblock %}">
-    <meta property="og:description" content="1313 FOG - Your premium clothing destination with the latest fashion trends for Men, Women, and Kids">
+    
+    <!-- Google Fonts - Added Montserrat for headings and Poppins for body -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="FOG - Fashion of Generations. Your premium clothing destination with the latest fashion trends for Men, Women, and Kids across Punjab, India. Visit our stores in Bathinda, Barnala, Zira, Kotkapura and Mansa.">
+    <meta name="keywords" content="FOG, 1313FOG, fashion, clothing, premium, men, women, kids, style, Punjab, Bathinda, Barnala, Zira, Kotkapura, Mansa">
+    <meta name="author" content="FOG - Fashion of Generations">
+    
+    <!-- Open Graph Meta Tags for social sharing -->
+    <meta property="og:title" content="{% block ogtitle %}FOG - Fashion of Generations{% endblock %}">
+    <meta property="og:description" content="Your premium clothing destination with the latest fashion trends for Men, Women, and Kids across Punjab, India">
     <meta property="og:image" content="{{ url_for('static', filename='assets/hero.jpg', _external=True) }}">
     <meta property="og:url" content="https://www.1313fog.com">
+    <meta property="og:type" content="website">
+    
+    <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
-    <title>{% block title %}1313 FOG{% endblock %}</title>    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+    <meta name="twitter:title" content="FOG - Fashion of Generations">
+    <meta name="twitter:description" content="Your premium clothing destination with the latest fashion trends for Men, Women, and Kids">
+    <meta name="twitter:image" content="{{ url_for('static', filename='assets/hero.jpg', _external=True) }}">
+    
+    <title>{% block title %}FOG - Fashion of Generations{% endblock %}</title>
+    
+    <!-- Preconnect to external resources -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+      <!-- Site Stylesheets -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/enhanced-style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/enhanced-home.css') }}">
     <link rel="icon" href="{{ url_for('static', filename='assets/favicon.ico') }}">
+    
     {% block head %}{% endblock %}
 </head>
 <body>
+    <!-- Header and Navigation -->
     <header>
         <nav class="navbar">
             <div class="logo">
-                <a href="{{ url_for('home') }}">1313 FOG</a>
-            </div>            <div class="nav-links">
-                <a href="{{ url_for('home') }}">Home</a>
-                <a href="{{ url_for('about') }}">About</a>
-                <a href="{{ url_for('offers') }}">Offers</a>
-                <a href="{{ url_for('gallery') }}">Gallery</a>
-                <a href="{{ url_for('contact') }}">Contact</a>
+                <a href="{{ url_for('home') }}">
+                    FOG
+                    <span class="tagline">Fashion of Generations</span>
+                </a>
             </div>
+            
+            <div class="nav-links">
+                <a href="{{ url_for('home') }}" class="nav-link"><i class="fas fa-home fa-fw"></i> Home</a>
+                <a href="{{ url_for('about') }}" class="nav-link"><i class="fas fa-info-circle fa-fw"></i> About</a>
+                <a href="{{ url_for('offers') }}" class="nav-link"><i class="fas fa-tags fa-fw"></i> Offers</a>
+                <a href="{{ url_for('gallery') }}" class="nav-link"><i class="fas fa-images fa-fw"></i> Gallery</a>
+                <a href="{{ url_for('contact') }}" class="nav-link"><i class="fas fa-map-marker-alt fa-fw"></i> Contact</a>
+            </div>
+            
             <div class="mobile-menu-icon" id="mobile-menu">
                 <i class="fas fa-bars"></i>
             </div>
         </nav>
     </header>
+    
+    <!-- Main Content -->
     <main>
         {% block content %}{% endblock %}
     </main>
-      <div class="footer-wave">
+    
+    <!-- Footer Wave Divider -->
+    <div class="footer-wave">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 100" preserveAspectRatio="none">
-            <path fill="#111" fill-opacity="1" d="M0,32L48,48C96,64,192,96,288,96C384,96,480,64,576,48C672,32,768,32,864,26.7C960,21,1056,11,1152,16C1248,21,1344,43,1392,53.3L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+            <path fill="#222831" fill-opacity="1" d="M0,32L48,48C96,64,192,96,288,96C384,96,480,64,576,48C672,32,768,32,864,26.7C960,21,1056,11,1152,16C1248,21,1344,43,1392,53.3L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
         </svg>
     </div>
     
+    <!-- Pre-footer Brand Banner -->
     <div class="brand-banner">
         <div class="banner-content">
             <div class="banner-text">
-                <h2>1313 FOG</h2>
-                <p>Fashion of Generations</p>
+                <h2>FOG</h2>
+                <p>Discover our family-friendly one-stop-shop! We have everything for kids and grown-ups.</p>
             </div>
             <div class="banner-cta">
                 <a href="{{ url_for('offers') }}" class="btn-primary">Shop Now</a>
@@ -95,45 +134,61 @@
         </div>
     </div>
     
-    <footer class="footer">        <div class="footer-content">
-            <div class="footer-section locations">                <h3>Locations</h3>                <p><i class="fas fa-map-marker-alt fa-fw icon-location" aria-hidden="true"></i> <span>Bathinda</span></p>
-                <p><i class="fas fa-map-marker-alt fa-fw icon-location" aria-hidden="true"></i> <span>Barnala</span></p>
-                <p><i class="fas fa-map-marker-alt fa-fw icon-location" aria-hidden="true"></i> <span>Zira</span></p>
-                <p><i class="fas fa-map-marker-alt fa-fw icon-location" aria-hidden="true"></i> <span>Kotkapura</span></p>
-                <p><i class="fas fa-map-marker-alt fa-fw icon-location" aria-hidden="true"></i> <span>Mansa</span></p>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section locations">
+                <h3>Our Stores</h3>
+                <p><a href="https://bit.ly/2XT9Uaw" target="_blank"><i class="fas fa-map-marker-alt fa-fw icon-location" aria-hidden="true"></i> <span>Bathinda</span></a></p>
+                <p><a href="https://bit.ly/2XXSEBi" target="_blank"><i class="fas fa-map-marker-alt fa-fw icon-location" aria-hidden="true"></i> <span>Barnala</span></a></p>
+                <p><a href="https://bit.ly/4cLexrI" target="_blank"><i class="fas fa-map-marker-alt fa-fw icon-location" aria-hidden="true"></i> <span>Zira</span></a></p>
+                <p><a href="https://bit.ly/3rGrYCb" target="_blank"><i class="fas fa-map-marker-alt fa-fw icon-location" aria-hidden="true"></i> <span>Kotkapura</span></a></p>
+                <p><a href="https://www.google.com/maps/place/FOG+Mansa/@30.0033611,75.3914022,20.5z/" target="_blank"><i class="fas fa-map-marker-alt fa-fw icon-location" aria-hidden="true"></i> <span>Mansa</span></a></p>
             </div>
-            <div class="footer-section contact">                <h3>Contact</h3>                <p><i class="fas fa-phone fa-fw icon-phone" aria-hidden="true"></i> <span>+91 98883 69103</span></p>
-                <p><i class="fas fa-phone fa-fw icon-phone" aria-hidden="true"></i> <span>+91 98584 00013</span></p>
-                <p><i class="fas fa-envelope fa-fw icon-email" aria-hidden="true"></i> <span>info@1313fog.com</span></p>
+            
+            <div class="footer-section contact">
+                <h3>Contact Us</h3>
+                <p><a href="tel:+919888369103"><i class="fas fa-phone fa-fw icon-phone" aria-hidden="true"></i> <span>+91 98883 69103</span></a></p>
+                <p><a href="tel:+919858400013"><i class="fas fa-phone fa-fw icon-phone" aria-hidden="true"></i> <span>+91 98584 00013</span></a></p>
+                <p><a href="mailto:info@1313fog.com"><i class="fas fa-envelope fa-fw icon-email" aria-hidden="true"></i> <span>info@1313fog.com</span></a></p>
             </div>
+            
             <div class="footer-section policies">
                 <h3>Customer Policies</h3>
-                <p><a href="#">Return Policy</a></p>
-                <p><a href="#">Refund Policy</a></p>
-                <p><a href="#">Shipping Policy</a></p>
-                <p><a href="#">Privacy Policy</a></p>
-                <p><a href="#">Terms & Conditions</a></p>
+                <p><a href="{{ url_for('about') }}#return-policy">Return Policy</a></p>
+                <p><a href="{{ url_for('about') }}#refund-policy">Refund Policy</a></p>
+                <p><a href="{{ url_for('about') }}#shipping-policy">Shipping Policy</a></p>
+                <p><a href="{{ url_for('about') }}#privacy-policy">Privacy Policy</a></p>
+                <p><a href="{{ url_for('about') }}#terms">Terms & Conditions</a></p>
             </div>
+            
             <div class="footer-section social">
-                <h3>Follow Us on</h3>                <div class="social-icons">
-                    <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram fa-fw icon-instagram" aria-hidden="true"></i> <span>Instagram</span></a>
-                    <a href="https://wa.me/919888369103" target="_blank"><i class="fab fa-whatsapp fa-fw icon-whatsapp" aria-hidden="true"></i> <span>WhatsApp</span></a>
-                    <a href="https://snapchat.com" target="_blank"><i class="fab fa-snapchat fa-fw icon-snapchat" aria-hidden="true"></i> <span>Snapchat</span></a>
-                    <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook fa-fw icon-facebook" aria-hidden="true"></i> <span>Facebook</span></a>
+                <h3>Follow Us</h3>
+                <div class="social-icons">
+                    <a href="http://www.instagram.com/1313fog" target="_blank"><i class="fab fa-instagram fa-fw icon-instagram" aria-hidden="true"></i> <span>Instagram</span></a>
+                    <a href="https://wa.me/919858400013" target="_blank"><i class="fab fa-whatsapp fa-fw icon-whatsapp" aria-hidden="true"></i> <span>WhatsApp</span></a>
+                    <a href="https://www.snapchat.com/add/fog_1313" target="_blank"><i class="fab fa-snapchat fa-fw icon-snapchat" aria-hidden="true"></i> <span>Snapchat</span></a>
+                    <a href="https://www.facebook.com/1313fog/" target="_blank"><i class="fab fa-facebook fa-fw icon-facebook" aria-hidden="true"></i> <span>Facebook</span></a>
                 </div>
             </div>
-        </div>        <div class="footer-bottom">
-            <p>&copy; 2024 <a href="{{ url_for('home') }}">1313 FOG</a>. All rights reserved.</p>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; {% block year %}2025{% endblock %} <a href="{{ url_for('home') }}">FOG - Fashion of Generations</a>. All rights reserved.</p>
             <p class="designer-credit">Website designed with <i class="fas fa-heart fa-fw icon-heart" aria-hidden="true"></i> by Premium Designs</p>
         </div>
     </footer>
-      <button id="scroll-to-top" aria-label="Scroll to top">
+    
+    <!-- Scroll to Top Button -->
+    <button id="scroll-to-top" aria-label="Scroll to top">
         <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
     </button>
     
+    <!-- Main JavaScript -->
     <script src="{{ url_for('static', filename='js/main.js') }}"></script>
     {% block scripts %}{% endblock %}
-      <!-- Fix for Font Awesome icon loading -->
+    
+    <!-- Fix for Font Awesome icon loading -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             // Check if Font Awesome is loaded properly

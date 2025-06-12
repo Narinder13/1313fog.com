@@ -1,9 +1,10 @@
 {% extends 'base.html' %}
-{% block title %}Home - 1313 FOG - Fashion of Generations{% endblock %}
+{% block title %}Home - FOG - Fashion of Generations{% endblock %}
+
 {% block content %}
 <!-- Hero Section with Animated Slider -->
 <section class="hero hero-slider">
-    <div class="hero-slide active" style="background-image: url('{{ url_for('static', filename='assets/hero.jpg') }}')">
+    <div class="hero-slide active" style="background-image: url('{{ url_for('static', filename='assets/hero.jpg') }}');">
         <div class="hero-content">
             <div class="hero-text">
                 <h1>SUMMER NEW COLLECTION</h1>
@@ -12,7 +13,7 @@
             </div>
         </div>
     </div>
-    <div class="hero-slide" style="background-image: url('{{ url_for('static', filename='assets/men.jpg') }}')">
+    <div class="hero-slide" style="background-image: url('{{ url_for('static', filename='assets/men.jpg') }}');">
         <div class="hero-content">
             <div class="hero-text">
                 <h1>FLAT 50% OFF</h1>
@@ -92,131 +93,149 @@
     </div>
 </section>
 
-<!-- Seasonal Collections Section -->
+<!-- Winter Collection Banner -->
 <section class="seasonal-collections">
+    <h2 class="section-title">Seasonal Collections</h2>
+    <p class="section-subtitle">Discover our latest seasonal arrivals and special promotions</p>
+    
     <div class="collections-container">
-        <div class="collection summer-collection">
-            <div class="collection-badge">New</div>
-            <div class="collection-image">
-                <img src="{{ url_for('static', filename='assets/hero.jpg') }}" alt="Summer Collection" loading="lazy">
-            </div>
-            <div class="collection-content">
-                <h3>Summer Collection</h3>
-                <p>Step into style with our exclusive summer collection! Find the latest trends that keep you cool and fashionable all season long.</p>
-                <a href="{{ url_for('offers') }}" class="btn-outline">Discover More</a>
-            </div>
-        </div>
-        
         <div class="collection winter-collection">
-            <div class="collection-badge">Sale</div>
+            <div class="collection-badge">New</div>
             <div class="collection-image">
                 <img src="{{ url_for('static', filename='assets/hero.jpg') }}" alt="Winter Collection" loading="lazy">
             </div>
             <div class="collection-content">
-                <h3>Winter Collection Sale</h3>
-                <p>Attention all winter enthusiasts! Don't miss out on our exclusive Winter Collection with a massive 50% flat discount on all winter apparel.</p>
-                <a href="{{ url_for('offers') }}" class="btn-outline">Shop Now</a>
+                <h3 class="collection-title">Winter Collection Sale</h3>
+                <p class="collection-desc">Attention all Globetrotters and Winter Enthusiasts! Enjoy a massive 50% flat discount on our entire range of winter apparel.</p>
+                <a href="{{ url_for('offers') }}" class="btn-primary">Shop Now</a>
+            </div>
+        </div>
+        <div class="collection summer-collection">
+            <div class="collection-badge">Popular</div>
+            <div class="collection-image">
+                <img src="{{ url_for('static', filename='assets/women.jpg') }}" alt="Summer Collection" loading="lazy">
+            </div>
+            <div class="collection-content">
+                <h3 class="collection-title">Summer Collection</h3>
+                <p class="collection-desc">Step into summer with our hottest styles. Find everything you need for the warm weather ahead.</p>
+                <a href="{{ url_for('offers') }}" class="btn-primary">Shop Now</a>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Store Locations Section with Map Links -->
+<!-- Featured Categories -->
+<section class="featured-categories">
+    <h2 class="section-title">Discover Latest Fashion</h2>
+    <p class="section-subtitle">Explore our trending collections for all ages</p>
+    
+    <div class="featured-category women">
+        <div class="category-content">
+            <h3>Women's Fashion</h3>
+            <p>Elevate Your Style with Our Latest Women's Fashion</p>
+            <p>Step into a world of sophistication and trendsetting style with our exclusive range of women's fashion. At our stores, you'll find the latest outfits that blend elegance with modern flair. From chic casual wear and elegant evening dresses to on-trend seasonal pieces, our collection is designed to help you make a statement.</p>
+            <a href="{{ url_for('offers') }}" class="btn-outline">Explore Collection</a>
+        </div>
+        <div class="category-image">
+            <img src="{{ url_for('static', filename='assets/women.jpg') }}" alt="Women's Fashion" loading="lazy">
+        </div>
+    </div>
+    
+    <div class="featured-category men">
+        <div class="category-image">
+            <img src="{{ url_for('static', filename='assets/men.jpg') }}" alt="Men's Fashion" loading="lazy">
+        </div>
+        <div class="category-content">
+            <h3>Men's Fashion</h3>
+            <p>Discover Latest Men's Fashion</p>
+            <p>Upgrade your wardrobe with our stylish collection of men's fashion. We offer everything from comfortable casual wear to sophisticated formal attire, ensuring you look your best for any occasion. Our carefully curated selection features the latest trends, classic staples, and unique pieces that help you express your individual style.</p>
+            <a href="{{ url_for('offers') }}" class="btn-outline">Explore Collection</a>
+        </div>
+    </div>
+    
+    <div class="featured-category kids">
+        <div class="category-content">
+            <h3>Kids' Fashion</h3>
+            <p>Stylish and Fun Fashion for Kids</p>
+            <p>Discover the perfect blend of style and comfort with our latest collection of kids' fashion. Our stores offer a wide range of trendy and playful outfits designed for every occasion. From casual wear and school essentials to special event attire, our collection ensures your little ones are dressed in the latest styles.</p>
+            <a href="{{ url_for('offers') }}" class="btn-outline">Explore Collection</a>
+        </div>
+        <div class="category-image">
+            <img src="{{ url_for('static', filename='assets/kids.jpg') }}" alt="Kids Fashion" loading="lazy">
+        </div>
+    </div>
+</section>
+
+<!-- Special Offer Banner -->
+<section class="special-offer">
+    <div class="offer-content">
+        <h2>Limited Time Offer</h2>
+        <p>Hurry! Don't miss our exclusive FLAT 50% OFF on all items. Refresh your wardrobe with our premium selections at half the price.</p>
+        <div class="counter-container">
+            <div class="counter-box">
+                <div class="counter-number" id="days">00</div>
+                <div class="counter-label">Days</div>
+            </div>
+            <div class="counter-box">
+                <div class="counter-number" id="hours">00</div>
+                <div class="counter-label">Hours</div>
+            </div>
+            <div class="counter-box">
+                <div class="counter-number" id="minutes">00</div>
+                <div class="counter-label">Minutes</div>
+            </div>
+            <div class="counter-box">
+                <div class="counter-number" id="seconds">00</div>
+                <div class="counter-label">Seconds</div>
+            </div>
+        </div>
+        <a href="{{ url_for('offers') }}" class="btn-primary">Shop Now</a>
+    </div>
+</section>
+
+<!-- Store Locations -->
 <section class="store-locations">
-    <h2 class="section-title">FOG Stores</h2>
-    <p class="section-subtitle">Visit one of our stores across Punjab</p>
+    <h2 class="section-title">Visit Our Stores</h2>
+    <p class="section-subtitle">We have locations across Punjab to serve you better</p>
     
     <div class="locations-grid">
         <div class="location-card">
-            <div class="location-icon">
-                <i class="fas fa-map-marker-alt"></i>
-            </div>
             <h3>Bathinda</h3>
-            <a href="https://bit.ly/2XT9Uaw" target="_blank" class="btn-location">Get Directions <i class="fas fa-external-link-alt"></i></a>
-        </div>
-        
-        <div class="location-card">
-            <div class="location-icon">
-                <i class="fas fa-map-marker-alt"></i>
+            <div class="location-link">
+                <a href="https://bit.ly/2XT9Uaw" target="_blank" class="btn-secondary">Get Directions</a>
             </div>
+        </div>
+        <div class="location-card">
             <h3>Barnala</h3>
-            <a href="https://bit.ly/2XXSEBi" target="_blank" class="btn-location">Get Directions <i class="fas fa-external-link-alt"></i></a>
-        </div>
-        
-        <div class="location-card">
-            <div class="location-icon">
-                <i class="fas fa-map-marker-alt"></i>
+            <div class="location-link">
+                <a href="https://bit.ly/2XXSEBi" target="_blank" class="btn-secondary">Get Directions</a>
             </div>
+        </div>
+        <div class="location-card">
             <h3>Zira</h3>
-            <a href="https://bit.ly/4cLexrI" target="_blank" class="btn-location">Get Directions <i class="fas fa-external-link-alt"></i></a>
-        </div>
-        
-        <div class="location-card">
-            <div class="location-icon">
-                <i class="fas fa-map-marker-alt"></i>
+            <div class="location-link">
+                <a href="https://bit.ly/4cLexrI" target="_blank" class="btn-secondary">Get Directions</a>
             </div>
+        </div>
+        <div class="location-card">
             <h3>Kotkapura</h3>
-            <a href="https://bit.ly/3rGrYCb" target="_blank" class="btn-location">Get Directions <i class="fas fa-external-link-alt"></i></a>
+            <div class="location-link">
+                <a href="https://bit.ly/3rGrYCb" target="_blank" class="btn-secondary">Get Directions</a>
+            </div>
         </div>
-        
         <div class="location-card">
-            <div class="location-icon">
-                <i class="fas fa-map-marker-alt"></i>
-            </div>
             <h3>Mansa</h3>
-            <a href="https://www.google.com/maps/place/FOG+Mansa/" target="_blank" class="btn-location">Get Directions <i class="fas fa-external-link-alt"></i></a>
+            <div class="location-link">
+                <a href="https://www.google.com/maps/place/FOG+Mansa/@30.0033611,75.3914022,20.5z/" target="_blank" class="btn-secondary">Get Directions</a>
+            </div>
         </div>
     </div>
 </section>
 
-<!-- Instagram Gallery -->
-<section class="instagram-gallery">
-    <h2 class="section-title">Follow Our Style</h2>
-    <p class="section-subtitle">Find us @1313fog on Instagram for more inspiration</p>
-    
-    <div class="gallery-grid">
-        <div class="gallery-item">
-            <img src="{{ url_for('static', filename='assets/hero.jpg') }}" alt="Instagram post" loading="lazy">
-            <div class="gallery-overlay">
-                <a href="http://www.instagram.com/1313fog" target="_blank" class="icon-link"><i class="fab fa-instagram"></i></a>
-            </div>
-        </div>
-        <div class="gallery-item">
-            <img src="{{ url_for('static', filename='assets/men.jpg') }}" alt="Instagram post" loading="lazy">
-            <div class="gallery-overlay">
-                <a href="http://www.instagram.com/1313fog" target="_blank" class="icon-link"><i class="fab fa-instagram"></i></a>
-            </div>
-        </div>
-        <div class="gallery-item">
-            <img src="{{ url_for('static', filename='assets/women.jpg') }}" alt="Instagram post" loading="lazy">
-            <div class="gallery-overlay">
-                <a href="http://www.instagram.com/1313fog" target="_blank" class="icon-link"><i class="fab fa-instagram"></i></a>
-            </div>
-        </div>
-        <div class="gallery-item">
-            <img src="{{ url_for('static', filename='assets/kids.jpg') }}" alt="Instagram post" loading="lazy">
-            <div class="gallery-overlay">
-                <a href="http://www.instagram.com/1313fog" target="_blank" class="icon-link"><i class="fab fa-instagram"></i></a>
-            </div>
-        </div>
-    </div>
-    
-    <div class="social-cta">
-        <p>Connect with us on social media for the latest updates, offers, and fashion inspiration!</p>
-        <div class="social-buttons">
-            <a href="http://www.instagram.com/1313fog" target="_blank" class="social-btn instagram"><i class="fab fa-instagram"></i> Instagram</a>
-            <a href="https://wa.me/919858400013" target="_blank" class="social-btn whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-            <a href="https://www.facebook.com/1313fog/" target="_blank" class="social-btn facebook"><i class="fab fa-facebook"></i> Facebook</a>
-            <a href="https://www.snapchat.com/add/fog_1313" target="_blank" class="social-btn snapchat"><i class="fab fa-snapchat"></i> Snapchat</a>
-        </div>
-    </div>
-</section>
-
-<!-- Contact CTA Section -->
-<section class="contact-cta">
+<!-- Call to Action -->
+<section class="cta-section">
     <div class="cta-content">
-        <h2>Ready to elevate your style?</h2>
-        <p>"Discover our family-friendly one-stop-shop! We have everything for kids and grown-ups. Come and explore today!"</p>
+        <h2>"Discover our family-friendly one-stop-shop! We have everything for kids and grown-ups. Come and explore today!"</h2>
         <div class="cta-buttons">
             <a href="{{ url_for('offers') }}" class="btn-primary">View Offers</a>
             <a href="{{ url_for('contact') }}" class="btn-secondary">Contact Us</a>
@@ -224,83 +243,90 @@
     </div>
 </section>
 
-<!-- Newsletter Section -->
-<section class="newsletter">
-    <div class="newsletter-content">
-        <h2>Stay Updated</h2>
-        <p>Subscribe to our newsletter for the latest fashion trends, exclusive offers and store updates</p>
-        <form class="newsletter-form">
-            <input type="email" placeholder="Your Email Address" required>
-            <button type="submit" class="btn-primary">Subscribe</button>
-        </form>
-    </div>
-</section>
+{% endblock %}
 
-<!-- Custom Scripts for Homepage -->
 {% block scripts %}
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-        // Hero slider functionality
-        const slides = document.querySelectorAll('.hero-slide');
+        // Hero Slider functionality
+        const heroSlides = document.querySelectorAll('.hero-slide');
+        const prevSlide = document.querySelector('.prev-slide');
+        const nextSlide = document.querySelector('.next-slide');
         const indicators = document.querySelectorAll('.indicator');
-        const nextBtn = document.querySelector('.next-slide');
-        const prevBtn = document.querySelector('.prev-slide');
         let currentSlide = 0;
         
         function showSlide(index) {
-            slides.forEach(slide => slide.classList.remove('active'));
-            indicators.forEach(indicator => indicator.classList.remove('active'));
+            // Hide all slides
+            heroSlides.forEach((slide) => {
+                slide.classList.remove('active');
+            });
             
-            slides[index].classList.add('active');
+            // Update indicators
+            indicators.forEach((indicator) => {
+                indicator.classList.remove('active');
+            });
+            
+            // Show the current slide
+            heroSlides[index].classList.add('active');
             indicators[index].classList.add('active');
-            currentSlide = index;
         }
         
-        function nextSlide() {
-            let next = currentSlide + 1;
-            if (next >= slides.length) next = 0;
-            showSlide(next);
+        function nextSlideHandler() {
+            currentSlide = (currentSlide + 1) % heroSlides.length;
+            showSlide(currentSlide);
         }
         
-        function prevSlide() {
-            let prev = currentSlide - 1;
-            if (prev < 0) prev = slides.length - 1;
-            showSlide(prev);
+        function prevSlideHandler() {
+            currentSlide = (currentSlide - 1 + heroSlides.length) % heroSlides.length;
+            showSlide(currentSlide);
         }
         
         // Set up event listeners
-        nextBtn.addEventListener('click', nextSlide);
-        prevBtn.addEventListener('click', prevSlide);
+        if (prevSlide && nextSlide) {
+            prevSlide.addEventListener('click', prevSlideHandler);
+            nextSlide.addEventListener('click', nextSlideHandler);
+        }
         
+        // Set up indicator click events
         indicators.forEach((indicator, index) => {
-            indicator.addEventListener('click', () => showSlide(index));
-        });
-        
-        // Auto-advance slides
-        setInterval(nextSlide, 5000);
-        
-        // Animation on scroll
-        const animatedElements = document.querySelectorAll('.category-card, .about-text, .about-image, .collection, .location-card, .gallery-item');
-        
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-        
-        const observer = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animate');
-                    observer.unobserve(entry.target);
-                }
+            indicator.addEventListener('click', () => {
+                currentSlide = index;
+                showSlide(currentSlide);
             });
-        }, observerOptions);
-        
-        animatedElements.forEach(element => {
-            element.classList.add('pre-animate');
-            observer.observe(element);
         });
+        
+        // Auto slide every 5 seconds
+        setInterval(nextSlideHandler, 5000);
+        
+        // Countdown Timer for Special Offer
+        const countdownDate = new Date();
+        countdownDate.setDate(countdownDate.getDate() + 7); // 7 days from now
+        
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = countdownDate.getTime() - now;
+            
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            
+            document.getElementById("days").innerHTML = days.toString().padStart(2, '0');
+            document.getElementById("hours").innerHTML = hours.toString().padStart(2, '0');
+            document.getElementById("minutes").innerHTML = minutes.toString().padStart(2, '0');
+            document.getElementById("seconds").innerHTML = seconds.toString().padStart(2, '0');
+            
+            if (distance < 0) {
+                document.getElementById("days").innerHTML = "00";
+                document.getElementById("hours").innerHTML = "00";
+                document.getElementById("minutes").innerHTML = "00";
+                document.getElementById("seconds").innerHTML = "00";
+            }
+        }
+        
+        // Update the countdown every second
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
     });
 </script>
-{% endblock %}
 {% endblock %}
