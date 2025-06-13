@@ -29,7 +29,13 @@ A premium, modern website built using Flask for 1313 FOG clothing store.
 │   │   ├── women.jpg
 │   │   └── kids.jpg
 │   ├── css/
-│   │   └── style.css       # Main stylesheet
+│   │   ├── about.css       # Consolidated About page styles
+│   │   ├── contact.css     # Consolidated Contact page styles
+│   │   ├── gallery.css     # Consolidated Gallery page styles  
+│   │   ├── offers.css      # Consolidated Offers page styles
+│   │   ├── consolidated-home.css # Consolidated Home page styles
+│   │   ├── icon-fallbacks.css    # Icon fallback styles
+│   │   └── icons.css       # Icon styles
 │   └── js/
 │       └── main.js         # JavaScript functionality
 └── templates/              # Jinja2 HTML templates
@@ -39,6 +45,33 @@ A premium, modern website built using Flask for 1313 FOG clothing store.
     ├── home.html           # Homepage with hero and categories
     └── offers.html         # Current offers/promotions
 ```
+
+## CSS Structure
+
+The CSS structure of this project has been consolidated and optimized:
+
+1. Each page has its own dedicated CSS file containing all necessary styles:
+   - `about.css` - Styles for the About page
+   - `contact.css` - Styles for the Contact page
+   - `gallery.css` - Styles for the Gallery page
+   - `offers.css` - Styles for the Offers page
+   - `consolidated-home.css` - Styles for the Home page
+
+2. Each consolidated CSS file includes:
+   - Base variables (colors, fonts, transitions, etc.)
+   - Page-specific styles
+   - Responsive adjustments
+
+3. Icon-related styles are kept separate:
+   - `icons.css` - Primary icon styles
+   - `icon-fallbacks.css` - SVG fallbacks for when Font Awesome fails to load
+
+This structure ensures:
+- No duplicate CSS rules across files
+- Organized and maintainable code
+- Page-specific loading of only required styles
+- Faster page loading times
+- Better organization and maintainability
 
 ## Setup and Installation
 
