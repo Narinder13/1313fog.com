@@ -1,5 +1,8 @@
 {% extends 'base.html' %}
 {% block title %}Admin Dashboard - 1313 FOG{% endblock %}
+{% block head %}
+<link rel='stylesheet' href='{{ url_for('static', filename='css/style.css') }}'>
+{% endblock %}
 {% block content %}
 <section class="page-header">
     <h1>Admin Dashboard</h1>
@@ -97,28 +100,5 @@
 </section>
 {% endblock %}
 
-{% block scripts %}
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const tabBtns = document.querySelectorAll('.tab-btn');
-        const tabContents = document.querySelectorAll('.tab-content');
-        
-        tabBtns.forEach(btn => {
-            btn.addEventListener('click', function() {
-                // Remove active class from all buttons
-                tabBtns.forEach(b => b.classList.remove('active'));
-                
-                // Add active class to clicked button
-                this.classList.add('active');
-                
-                // Hide all tab contents
-                tabContents.forEach(content => content.classList.remove('active'));
-                
-                // Show selected tab content
-                const tabId = this.getAttribute('data-tab');
-                document.getElementById(`${tabId}-tab`).classList.add('active');
-            });
-        });
-    });
-</script>
-{% endblock %}
+
+{% block scripts %}{% endblock %}

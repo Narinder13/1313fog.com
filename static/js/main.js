@@ -974,5 +974,40 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     window.addEventListener('scroll', animateOnScroll);
+    // Admin page tabs
+    const tabBtns = document.querySelectorAll('.tab-btn');
+    const tabContents = document.querySelectorAll('.tab-content');
+
+    if (tabBtns.length > 0) {
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                tabBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                tabContents.forEach(content => content.classList.remove('active'));
+                const tabId = btn.getAttribute('data-tab');
+                const active = document.getElementById(`${tabId}-tab`);
+                if (active) active.classList.add('active');
+            });
+        });
+    }
+
+    // Font Awesome fallback
+    (function() {
+        const span = document.createElement('span');
+        span.className = 'fas fa-check';
+        span.style.display = 'none';
+        document.body.appendChild(span);
+        const loaded = window.getComputedStyle(span, ':before').getPropertyValue('content') !== '';
+        document.body.removeChild(span);
+        if (!loaded) {
+            document.body.classList.add('use-svg-fallback');
+        }
+        document.querySelectorAll('.fas, .fab, .fa, [class^="fa-"], [class*=" fa-"]').forEach(icon => {
+            icon.style.display = 'none';
+            void icon.offsetHeight;
+            icon.style.display = 'inline-block';
+        });
+    })();
     animateOnScroll(); // Check on initial load
 });

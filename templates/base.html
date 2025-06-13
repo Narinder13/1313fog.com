@@ -3,40 +3,6 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- Critical CSS for icons - Inlined for fastest loading -->
-    <style>
-        /* Critical icon styles */
-        .fas, .fab, .fa, [class^="fa-"], [class*=" fa-"] {
-            display: inline-block !important;
-            text-rendering: auto;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-        
-        /* Ensure icons have proper dimensions */
-        .fa-fw, .icon-fw {
-            width: 1.25em;
-            text-align: center;
-        }
-        
-        /* Basic footer styling to ensure icons display */
-        .footer-section p i,
-        .social-icons a i,
-        .footer-bottom i {
-            display: inline-block !important;
-            margin-right: 8px;
-        }
-        
-        /* Basic colors for icons */
-        .footer-section.locations i.fa-map-marker-alt { color: #e74c3c !important; }
-        .footer-section.contact i.fa-phone { color: #27ae60 !important; }
-        .footer-section.contact i.fa-envelope { color: #3498db !important; }
-        .social-icons a i.fa-instagram { color: #E1306C !important; }
-        .social-icons a i.fa-whatsapp { color: #25D366 !important; }
-        .social-icons a i.fa-snapchat { color: #FFFC00 !important; }
-        .social-icons a i.fa-facebook { color: #1877F2 !important; }
-        .fa-heart { color: #e74c3c !important; }
-    </style>
     
     <!-- Font Awesome CDN with multiple fallbacks -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-Fo3rlrZj/kNV+O0ssLxvnN1RoJnHWvgEPSH+DsG+Yue/ZkzBZsKAEVPrjNJ+Fx2dhwZ0pQF5XqWCK3GvjI8ffw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -185,31 +151,5 @@
     <script src="{{ url_for('static', filename='js/main.js') }}"></script>
     {% block scripts %}{% endblock %}
     
-    <!-- Fix for Font Awesome icon loading -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Check if Font Awesome is loaded properly
-            var span = document.createElement('span');
-            span.className = 'fas fa-check';
-            span.style.display = 'none';
-            document.body.appendChild(span);
-            
-            // Check if the icon is rendered properly
-            var isFontAwesomeLoaded = window.getComputedStyle(span, ':before').getPropertyValue('content') !== '';
-            document.body.removeChild(span);
-            
-            // If Font Awesome is not loaded properly, add class for SVG fallback
-            if (!isFontAwesomeLoaded) {
-                document.body.classList.add('use-svg-fallback');
-            }
-            
-            // Force a repaint of all icons
-            document.querySelectorAll('.fas, .fab, .fa, [class^="fa-"], [class*=" fa-"]').forEach(function(icon) {
-                icon.style.display = 'none';
-                void icon.offsetHeight; // Trigger a reflow
-                icon.style.display = 'inline-block';
-            });
-        });
-    </script>
 </body>
 </html>
