@@ -4,10 +4,7 @@
 <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 {% endblock %}
 {% block content %}
-<section class="page-header">
-    <h1>About Us</h1>
-    <p>Our story, our mission, and our vision</p>
-</section>
+{% include 'components/page_header.html' with title='About Us' subtitle='Our story, our mission, and our vision' %}
 
 <section class="about-content">
     <div class="about-image">

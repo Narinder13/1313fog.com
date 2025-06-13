@@ -4,10 +4,7 @@
 <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 {% endblock %}
 {% block content %}
-<section class="page-header">
-    <h1>Current Offers</h1>
-    <p>Exclusive deals and promotions for our valued customers</p>
-</section>
+{% include 'components/page_header.html' with title='Current Offers' subtitle='Exclusive deals and promotions for our valued customers' %}
 
 <!-- Category tabs section -->
 <section class="offer-categories">
@@ -33,7 +30,7 @@
                 <!-- Will be filled by JavaScript -->
             </div>
         </div>
-        <a href="#" class="special-offer-cta">Shop Now</a>
+        <a href="#" class="btn-primary">Shop Now</a>
     </div>
 </section>
 
