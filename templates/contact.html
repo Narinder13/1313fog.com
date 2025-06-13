@@ -162,23 +162,4 @@
 
 {% block scripts %}
 <script src="https://maps.googleapis.com/maps/api/js?key={{ google_maps_api_key }}&callback=initMap" async defer></script>
-<script>
-    function initMap() {
-        // Default location
-        const storeLocation = { lat: 40.712776, lng: -74.005974 };
-        
-        // Create map
-        const map = new google.maps.Map(document.getElementById("map"), {
-            zoom: 14,
-            center: storeLocation,
-        });
-        
-        // Add marker
-        const marker = new google.maps.Marker({
-            position: storeLocation,
-            map: map,
-            title: "1313 FOG Main Store",
-        });
-    }
-</script>
 {% endblock %}
