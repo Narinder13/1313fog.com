@@ -160,6 +160,32 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize scroll animations if supported
     initScrollAnimations();
     
+    // Timeline Animation Handler
+    function initTimelineAnimation() {
+        const timelineItems = document.querySelectorAll('.timeline-item');
+        if (timelineItems.length === 0) return;
+        
+        const timelineObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    // Add staggered delay based on item position
+                    setTimeout(() => {
+                        entry.target.classList.add('in-view');
+                    }, index * 200);
+                    
+                    timelineObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.2 });
+        
+        timelineItems.forEach(item => {
+            timelineObserver.observe(item);
+        });
+    }
+    
+    // Initialize timeline animation
+    initTimelineAnimation();
+    
     // Reveal animations on scroll
     const revealElements = document.querySelectorAll('.card, .section-title, .timeline-item');
     
@@ -172,6 +198,11 @@ document.addEventListener('DOMContentLoaded', function() {
             
             if (elementTop < windowHeight - revealPoint) {
                 element.classList.add('revealed');
+                
+                // Add fade-in class for timeline items
+                if (element.classList.contains('timeline-item') && !element.classList.contains('in-view')) {
+                    element.classList.add('in-view');
+                }
             }
         });
     }
@@ -191,6 +222,12 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     `;
     document.head.appendChild(style);
+    
+    // Initialize timeline items with staggered animation
+    const timelineItems = document.querySelectorAll('.timeline-item');
+    timelineItems.forEach((item, index) => {
+        item.style.transitionDelay = `${index * 0.2}s`;
+    });
     
     // Initial check and listen for scroll
     revealOnScroll();
@@ -304,45 +341,7 @@ document.addEventListener('DOMContentLoaded', function() {
             behavior: 'smooth'
         });
     });
-    
-    // Testimonial slider functionality
-    const testimonialSlider = document.getElementById('testimonial-slider');
-    if (testimonialSlider) {
-        const slides = testimonialSlider.querySelectorAll('.testimonial-slide');
-        const dotsContainer = document.getElementById('testimonial-dots');
-        const prevBtn = document.getElementById('prev-testimonial');
-        const nextBtn = document.getElementById('next-testimonial');
-        
-        let currentSlide = 0;
-        
-        // Create dots
-        slides.forEach((_, i) => {
-            const dot = document.createElement('div');
-            dot.classList.add('dot');
-            if (i === 0) dot.classList.add('active');
-            dot.addEventListener('click', () => goToSlide(i));
-            dotsContainer.appendChild(dot);
-        });
-        
-        const dots = dotsContainer.querySelectorAll('.dot');
-        
-        // Initialize the slider
-        showSlide(currentSlide);
-        
-        function showSlide(n) {
-            // Hide all slides
-            slides.forEach(slide => slide.classList.remove('active'));
-            dots.forEach(dot => dot.classList.remove('active'));
-            
-            // Show current slide
-            slides[n].classList.add('active');
-            dots[n].classList.add('active');
-        }
-        
-        function goToSlide(n) {
-            currentSlide = n;
-            showSlide(currentSlide);
-        }
+      // ABOUT PAGE TESTIMONIALS - Function moved to unified implementation below
         
         function nextSlide() {
             currentSlide = (currentSlide + 1) % slides.length;
@@ -360,8 +359,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Auto-rotate slides
         setInterval(nextSlide, 5000);
-    }
-      // Hero slider for homepage
+    }      // Hero slider for homepage
     const heroSlides = document.querySelectorAll('.hero-slide');
     if (heroSlides.length > 0) {
         const indicators = document.querySelectorAll('.indicator');
@@ -372,7 +370,9 @@ document.addEventListener('DOMContentLoaded', function() {
         
         function showSlide(index) {
             // Hide all slides
-            heroSlides.forEach(slide => slide.classList.remove('active'));
+            heroSlides.forEach((slide) => {
+                slide.classList.remove('active');
+            });
             indicators.forEach(indicator => indicator.classList.remove('active'));
             
             // Show current slide
@@ -403,14 +403,15 @@ document.addEventListener('DOMContentLoaded', function() {
             prevHeroSlide();
             resetAutoSlide();
         });
-        
-        // Set up indicator clicks
-        indicators.forEach((indicator, index) => {
-            indicator.addEventListener('click', () => {
-                showSlide(index);
-                resetAutoSlide();
+          // Set up indicator clicks
+        if (indicators) {
+            indicators.forEach((indicator, index) => {
+                indicator.addEventListener('click', () => {
+                    showSlide(index);
+                    resetAutoSlide();
+                });
             });
-        });
+        }
         
         // Function to start auto-sliding
         function startAutoSlide() {
@@ -593,46 +594,115 @@ document.addEventListener('DOMContentLoaded', function() {
         
         window.addEventListener('scroll', checkTimelineInView);
         checkTimelineInView(); // Check on initial load
-    }
-    
-    // Testimonial slider if available
-    const testimonialSlider2 = document.getElementById('testimonial-slider');
-    if (testimonialSlider2) {
-        const testimonialSlides = testimonialSlider2.querySelectorAll('.testimonial-slide');
-        let testimonialIndex = 0;
+    }    // ABOUT PAGE TESTIMONIALS
+    // Enhanced testimonial slider with navigation and auto-advance
+    const testimonialSlider = document.getElementById('testimonial-slider');
+    if (testimonialSlider) {
+        const testimonialSlides = testimonialSlider.querySelectorAll('.testimonial-slide');
+        const prevBtn = document.getElementById('prev-testimonial');
+        const nextBtn = document.getElementById('next-testimonial');
+        const dotsContainer = document.getElementById('testimonial-dots');
+        let currentIndex = 0;
+        let autoAdvanceInterval;
         
-        function showTestimonial(index) {
-            testimonialSlides.forEach((slide, i) => {
-                if (i === index) {
-                    slide.style.opacity = 1;
-                    slide.style.transform = 'translateX(0)';
-                    slide.style.zIndex = 1;
-                } else {
-                    slide.style.opacity = 0;
-                    slide.style.transform = 'translateX(50px)';
-                    slide.style.zIndex = 0;
-                }
+        // Create dots if container exists
+        if (dotsContainer) {
+            // Clear any existing dots
+            dotsContainer.innerHTML = '';
+            
+            testimonialSlides.forEach((_, i) => {
+                const dot = document.createElement('div');
+                dot.classList.add('dot');
+                if (i === 0) dot.classList.add('active');
+                dot.addEventListener('click', () => {
+                    goToSlide(i);
+                    resetAutoAdvance();
+                });
+                dotsContainer.appendChild(dot);
             });
         }
         
-        function nextTestimonial() {
-            testimonialIndex = (testimonialIndex + 1) % testimonialSlides.length;
-            showTestimonial(testimonialIndex);
+        const dots = dotsContainer ? dotsContainer.querySelectorAll('.dot') : [];        // Get progress indicator element
+        const progressIndicator = document.getElementById('testimonial-progress');
+        
+        function showSlide(index) {
+            // Store direction for animation
+            const direction = index > currentIndex ? 'right' : 'left';
+            
+            // Hide all slides
+            testimonialSlides.forEach(slide => {
+                slide.classList.remove('active');
+                slide.style.display = 'none';
+                // Remove any animation classes
+                slide.classList.remove('slide-in-right', 'slide-in-left');
+            });
+            
+            if (dots.length > 0) {
+                dots.forEach(dot => dot.classList.remove('active'));
+                dots[index].classList.add('active');
+            }
+            
+            // Update progress indicator if it exists
+            if (progressIndicator) {
+                const progressPercentage = ((index + 1) / testimonialSlides.length) * 100;
+                progressIndicator.style.width = progressPercentage + '%';
+            }
+            
+            // Show current slide with direction-based animation
+            testimonialSlides[index].classList.add('active');
+            testimonialSlides[index].style.display = 'block';
+            testimonialSlides[index].style.animation = direction === 'right' ? 
+                'fadeInRight 0.5s ease forwards' : 'fadeInLeft 0.5s ease forwards';
+        }
+        
+        function goToSlide(index) {
+            currentIndex = index;
+            showSlide(currentIndex);
+        }
+        
+        function nextSlide() {
+            currentIndex = (currentIndex + 1) % testimonialSlides.length;
+            showSlide(currentIndex);
+        }
+        
+        function prevSlide() {
+            currentIndex = (currentIndex - 1 + testimonialSlides.length) % testimonialSlides.length;
+            showSlide(currentIndex);
+        }
+        
+        function resetAutoAdvance() {
+            // Clear the existing interval and start a new one
+            clearInterval(autoAdvanceInterval);
+            autoAdvanceInterval = setInterval(nextSlide, 6000);
+        }
+        
+        // Add button event listeners if they exist
+        if (nextBtn) {
+            nextBtn.addEventListener('click', () => {
+                nextSlide();
+                resetAutoAdvance();
+            });
+        }
+        
+        if (prevBtn) {
+            prevBtn.addEventListener('click', () => {
+                prevSlide();
+                resetAutoAdvance();
+            });
         }
         
         // Initial setup
         testimonialSlides.forEach((slide, i) => {
             if (i === 0) {
-                slide.style.opacity = 1;
-                slide.style.transform = 'translateX(0)';
+                slide.classList.add('active');
+                slide.style.display = 'block';
             } else {
-                slide.style.opacity = 0;
-                slide.style.transform = 'translateX(50px)';
+                slide.style.display = 'none';
             }
         });
         
-        // Auto-advance
-        setInterval(nextTestimonial, 5000);
+        // Initialize auto-advance
+        resetAutoAdvance();
     }
     
     // OFFERS PAGE FUNCTIONALITY
