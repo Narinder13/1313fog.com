@@ -4,10 +4,7 @@
 <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 {% endblock %}
 {% block content %}
-<section class="page-header">
-    <h1>Our Gallery</h1>
-    <p>Explore our store and collection</p>
-</section>
+{% include 'components/page_header.html' with title='Our Gallery' subtitle='Explore our store and collection' %}
 
 <section class="gallery-section">
     <div class="gallery-filter">
@@ -133,13 +130,13 @@
         <div class="featured-slide">
             <img src="{{ url_for('static', filename='assets/hero.jpg') }}" alt="Featured Image 1">
         </div>
-        <div class="featured-slide" style="display:none;">
+        <div class="featured-slide hidden">
             <img src="{{ url_for('static', filename='assets/men.jpg') }}" alt="Featured Image 2">
         </div>
-        <div class="featured-slide" style="display:none;">
+        <div class="featured-slide hidden">
             <img src="{{ url_for('static', filename='assets/women.jpg') }}" alt="Featured Image 3">
         </div>
-        <div class="featured-slide" style="display:none;">
+        <div class="featured-slide hidden">
             <img src="{{ url_for('static', filename='assets/kids.jpg') }}" alt="Featured Image 4">
         </div>
     </div>
