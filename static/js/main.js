@@ -1,13 +1,13 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Mobile menu toggle
     const mobileMenuBtn = document.getElementById('mobile-menu');
-    const navLinks = document.querySelector('.nav-links');
-
-    // Highlight active navigation link
-    const currentPage = window.location.pathname.split('/').pop() || 'home.html';
+    const navLinks = document.querySelector('.nav-links');    // Highlight active navigation link
+    const currentPath = window.location.pathname;
+    const homePath = ['/', '/home', ''];
     document.querySelectorAll('.nav-link').forEach(link => {
         const href = link.getAttribute('href');
-        if (href === currentPage) {
+        if ((homePath.includes(currentPath) && href === '/') || 
+            (currentPath === href)) {
             link.classList.add('active');
         }
     });

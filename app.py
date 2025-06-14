@@ -1,5 +1,6 @@
 import os
 from flask import Flask, render_template, send_from_directory
+from flask_compress import Compress
 from dotenv import load_dotenv
 
 # Load environment variables from .env file if it exists
@@ -7,6 +8,10 @@ load_dotenv()
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = os.getenv('SECRET_KEY', 'dev-key-for-testing')
+
+# Enable compression for better performance
+compress = Compress()
+compress.init_app(app)
 
 # Routes for main pages
 @app.route('/')
