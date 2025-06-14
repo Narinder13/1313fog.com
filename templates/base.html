@@ -42,9 +42,12 @@
     <!-- Preconnect to external resources -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com">      <!-- Site Stylesheets -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <!-- Site Stylesheets -->
     <link rel="icon" href="{{ url_for('static', filename='assets/favicon.ico') }}">
-    
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/style.css') }}">
+
     {% block head %}{% endblock %}
 </head>
 <body>
@@ -52,18 +55,18 @@
     <header>
         <nav class="navbar">
             <div class="logo">
-                <a href="{{ url_for('home') }}">
+                <a href="home.html">
                     FOG
                     <span class="tagline">Fashion of Generations</span>
                 </a>
             </div>
             
             <div class="nav-links">
-                <a href="{{ url_for('home') }}" class="nav-link"><i class="fas fa-home fa-fw"></i> Home</a>
-                <a href="{{ url_for('about') }}" class="nav-link"><i class="fas fa-info-circle fa-fw"></i> About</a>
-                <a href="{{ url_for('offers') }}" class="nav-link"><i class="fas fa-tags fa-fw"></i> Offers</a>
-                <a href="{{ url_for('gallery') }}" class="nav-link"><i class="fas fa-images fa-fw"></i> Gallery</a>
-                <a href="{{ url_for('contact') }}" class="nav-link"><i class="fas fa-map-marker-alt fa-fw"></i> Contact</a>
+                <a href="home.html" class="nav-link"><i class="fas fa-home fa-fw"></i> Home</a>
+                <a href="about.html" class="nav-link"><i class="fas fa-info-circle fa-fw"></i> About</a>
+                <a href="offers.html" class="nav-link"><i class="fas fa-tags fa-fw"></i> Offers</a>
+                <a href="gallery.html" class="nav-link"><i class="fas fa-images fa-fw"></i> Gallery</a>
+                <a href="contact.html" class="nav-link"><i class="fas fa-map-marker-alt fa-fw"></i> Contact</a>
             </div>
             
             <div class="mobile-menu-icon" id="mobile-menu">
@@ -92,7 +95,7 @@
                 <p>Discover our family-friendly one-stop-shop! We have everything for kids and grown-ups.</p>
             </div>
             <div class="banner-cta">
-                <a href="{{ url_for('offers') }}" class="btn-primary">Shop Now</a>
+                <a href="offers.html" class="btn-primary">Shop Now</a>
             </div>
         </div>
     </div>
@@ -118,11 +121,11 @@
             
             <div class="footer-section policies">
                 <h3>Customer Policies</h3>
-                <p><a href="{{ url_for('about') }}#return-policy">Return Policy</a></p>
-                <p><a href="{{ url_for('about') }}#refund-policy">Refund Policy</a></p>
-                <p><a href="{{ url_for('about') }}#shipping-policy">Shipping Policy</a></p>
-                <p><a href="{{ url_for('about') }}#privacy-policy">Privacy Policy</a></p>
-                <p><a href="{{ url_for('about') }}#terms">Terms & Conditions</a></p>
+                <p><a href="about.html#return-policy">Return Policy</a></p>
+                <p><a href="about.html#refund-policy">Refund Policy</a></p>
+                <p><a href="about.html#shipping-policy">Shipping Policy</a></p>
+                <p><a href="about.html#privacy-policy">Privacy Policy</a></p>
+                <p><a href="about.html#terms">Terms & Conditions</a></p>
             </div>
             
             <div class="footer-section social">
@@ -137,7 +140,7 @@
         </div>
         
         <div class="footer-bottom">
-            <p>&copy; {% block year %}2025{% endblock %} <a href="{{ url_for('home') }}">FOG - Fashion of Generations</a>. All rights reserved.</p>
+            <p>&copy; {% block year %}2025{% endblock %} <a href="home.html">FOG - Fashion of Generations</a>. All rights reserved.</p>
             <p class="designer-credit">Website designed with <i class="fas fa-heart fa-fw icon-heart" aria-hidden="true"></i> by Premium Designs</p>
         </div>
     </footer>
