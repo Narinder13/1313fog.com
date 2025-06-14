@@ -2,7 +2,9 @@
 {% block title %}Admin Dashboard - 1313 FOG{% endblock %}
 {% block head %}{% endblock %}
 {% block content %}
-{% include 'components/page_header.html' with title='Admin Dashboard' subtitle='Manage your website content' %}
+{% set title = 'Admin Dashboard' %}
+{% set subtitle = 'Manage your website content' %}
+{% include 'components/page_header.html' %}
 
 <section class="admin-section">
     <div class="admin-tabs">
