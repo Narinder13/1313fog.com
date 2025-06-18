@@ -1,19 +1,42 @@
 /**
  * FOG - Fashion of Generations
  * Main JavaScript File
+ * Updated: June 2025
  */
 
 // Wait for DOM to be fully loaded
 document.addEventListener('DOMContentLoaded', function() {
-    // Initialize all components
+    // Core components (run on all pages)
     initNavbar();
     initScrollToTop();
     initAnimations();
+    initScrollReveal();
+    
+    // Page specific components (run only if needed elements exist)
     initGalleryFilter();
     initAboutPageAnimations();
-    initLocationCards(); // Initialize location card animations
-    initContactPage(); // Initialize contact page elements
+    initLocationCards(); 
+    initContactPage();
+    initPoliciesPage();
+    initOffersPage();
+    
+    // Add header scroll effect
+    window.addEventListener('scroll', updateHeaderOnScroll);
 });
+
+/**
+ * Update header style on scroll
+ */
+function updateHeaderOnScroll() {
+    const header = document.querySelector('.header');
+    if (header) {
+        if (window.scrollY > 50) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+    }
+}
 
 /**
  * Handle navbar functionality
@@ -111,23 +134,23 @@ function initNavbar() {
 }
 
 /**
- * Handle scroll to top button
+ * Initialize scroll to top functionality
  */
 function initScrollToTop() {
-    const scrollBtn = document.getElementById('scrollToTop');
+    const scrollToTopBtn = document.getElementById('scrollToTop');
     
-    if (scrollBtn) {
-        // Show/hide button based on scroll position
+    if (scrollToTopBtn) {
+        // Show button after scrolling down
         window.addEventListener('scroll', function() {
             if (window.scrollY > 300) {
-                scrollBtn.classList.add('visible');
+                scrollToTopBtn.classList.add('visible');
             } else {
-                scrollBtn.classList.remove('visible');
+                scrollToTopBtn.classList.remove('visible');
             }
         });
         
-        // Scroll to top when clicking button
-        scrollBtn.addEventListener('click', function() {
+        // Scroll to top with smooth animation when clicked
+        scrollToTopBtn.addEventListener('click', function() {
             window.scrollTo({
                 top: 0,
                 behavior: 'smooth'
@@ -410,6 +433,341 @@ function initContactPage() {
                     cardInner.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.05)';
                 }
             });
+        });
+    }
+}
+
+/**
+ * Initialize Policies Page Features
+ */
+function initPoliciesPage() {
+    // Check if we're on the policies page
+    if (document.querySelector('.policy-sections')) {
+        // Add scroll reveal for policy blocks
+        const policyBlocks = document.querySelectorAll('.policy-block');
+        
+        // Function to check if element is in viewport
+        function isInViewport(element) {
+            const rect = element.getBoundingClientRect();
+            return (
+                rect.top <= (window.innerHeight || document.documentElement.clientHeight) * 0.85
+            );
+        }
+        
+        // Function to handle scroll events for policy blocks
+        function handlePolicyScroll() {
+            policyBlocks.forEach((block, index) => {
+                if (isInViewport(block)) {
+                    // Add a delay based on the index for staggered animation
+                    setTimeout(() => {
+                        block.classList.add('show');
+                    }, index * 150);
+                }
+            });
+        }
+        
+        // Check elements on initial load
+        handlePolicyScroll();
+        
+        // Add scroll event listener
+        window.addEventListener('scroll', handlePolicyScroll);
+        
+        // Enhanced FAQ accordion functionality
+        const faqItems = document.querySelectorAll('.faq-item');
+        
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            
+            question.addEventListener('click', function() {
+                const isActive = item.classList.contains('active');
+                
+                // Close all FAQs
+                faqItems.forEach(faqItem => {
+                    faqItem.classList.remove('active');
+                    const answer = faqItem.querySelector('.faq-answer');
+                    answer.style.maxHeight = 0;
+                });
+                
+                // Toggle current FAQ
+                if (!isActive) {
+                    item.classList.add('active');
+                    const answer = item.querySelector('.faq-answer');
+                    answer.style.maxHeight = answer.scrollHeight + 'px';
+                }
+            });
+        });
+        
+        // Enhanced policy navigation
+        const policyLinks = document.querySelectorAll('.policy-nav-item');
+        
+        policyLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Remove active class from all links
+                policyLinks.forEach(policyLink => {
+                    policyLink.classList.remove('active');
+                });
+                
+                // Add active class to clicked link
+                this.classList.add('active');
+                
+                // Get target section ID
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+                
+                if (targetElement) {
+                    // Calculate header offset for smooth scrolling
+                    const headerOffset = 100; // Adjust based on header height
+                    const elementPosition = targetElement.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                    
+                    // Scroll to the section
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Set active policy tab based on URL hash or default to first
+        const setActivePolicyTab = () => {
+            const hash = window.location.hash;
+            let activeLink;
+            
+            if (hash && document.querySelector(`a[href="${hash}"]`)) {
+                activeLink = document.querySelector(`a[href="${hash}"]`);
+            } else {
+                activeLink = policyLinks[0];
+            }
+            
+            if (activeLink) {
+                activeLink.click();
+            }
+        };
+        
+        // Run on page load
+        setActivePolicyTab();
+        
+        // Update on hash change
+        window.addEventListener('hashchange', setActivePolicyTab);
+    }
+}
+
+/**
+ * Initialize Offers Page Features
+ */
+function initOffersPage() {
+    // Check if we're on the offers page
+    if (document.querySelector('.offers-banner')) {
+        // Animate promo cards on scroll
+        const promoCards = document.querySelectorAll('.promo-card');
+        
+        function handlePromoCardsScroll() {
+            promoCards.forEach((card, index) => {
+                if (isElementInViewport(card) && !card.classList.contains('animate')) {
+                    // Add a delay based on the index for staggered animation
+                    setTimeout(() => {
+                        card.classList.add('animate');
+                    }, index * 200);
+                }
+            });
+        }
+        
+        function isElementInViewport(el) {
+            const rect = el.getBoundingClientRect();
+            return (
+                rect.top <= (window.innerHeight || document.documentElement.clientHeight) * 0.9
+            );
+        }
+        
+        // Check on initial load
+        handlePromoCardsScroll();
+        
+        // Add scroll event listener
+        window.addEventListener('scroll', handlePromoCardsScroll);
+        
+        // Enhanced Summer Collection Countdown
+        const summerCountdown = document.getElementById('summerCountdown');
+        if (summerCountdown) {
+            const summerEndDate = new Date();
+            // Set countdown to end 15 days from now
+            summerEndDate.setDate(summerEndDate.getDate() + 15);
+            
+            function updateCountdown() {
+                const now = new Date().getTime();
+                const distance = summerEndDate - now;
+                
+                // Time calculations
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                
+                // Display the result with leading zeros
+                document.getElementById("summerCountdownDays").innerText = days.toString().padStart(2, '0');
+                document.getElementById("summerCountdownHours").innerText = hours.toString().padStart(2, '0');
+                document.getElementById("summerCountdownMinutes").innerText = minutes.toString().padStart(2, '0');
+                document.getElementById("summerCountdownSeconds").innerText = seconds.toString().padStart(2, '0');
+                
+                // If the countdown is finished, display expired message
+                if (distance < 0) {
+                    clearInterval(countdownInterval);
+                    document.getElementById("summerCountdown").innerHTML = "<p class='expired'>Offer has expired</p>";
+                }
+            }
+            
+            // Update countdown immediately and then every second
+            updateCountdown();
+            const countdownInterval = setInterval(updateCountdown, 1000);
+        }
+        
+        // Add hover effects for category cards
+        const categoryCards = document.querySelectorAll('.category-card');
+        categoryCards.forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                const content = card.querySelector('.category-content');
+                content.style.transform = 'translateY(-20px)';
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                const content = card.querySelector('.category-content');
+                content.style.transform = 'translateY(0)';
+            });
+        });
+    }
+}
+
+/**
+ * Initialize ScrollReveal animations for content elements
+ * This adds smooth reveal animations when elements enter the viewport
+ */
+function initScrollReveal() {
+    // Check if elements exist to animate
+    if (document.querySelector('.animate-on-scroll')) {
+        // Function to check if element is in viewport
+        function isInViewport(element) {
+            const rect = element.getBoundingClientRect();
+            return (
+                rect.top <= (window.innerHeight || document.documentElement.clientHeight) * 0.85
+            );
+        }
+        
+        // Elements to animate
+        const elementsToAnimate = document.querySelectorAll('.animate-on-scroll');
+        
+        // Function to handle animation on scroll
+        function handleRevealElements() {
+            elementsToAnimate.forEach((element, index) => {
+                if (isInViewport(element) && !element.classList.contains('revealed')) {
+                    // Add staggered delay based on element index
+                    setTimeout(() => {
+                        // Get animation type from data attribute or default to fade-up
+                        const animationType = element.dataset.animation || 'fade-up';
+                        element.classList.add('revealed');
+                        element.classList.add(animationType);
+                    }, index * 150);
+                }
+            });
+        }
+        
+        // Check elements on initial load
+        handleRevealElements();
+        
+        // Add scroll event listener with throttling for performance
+        let scrollTimeout;
+        window.addEventListener('scroll', function() {
+            if (!scrollTimeout) {
+                scrollTimeout = setTimeout(function() {
+                    handleRevealElements();
+                    scrollTimeout = null;
+                }, 50);
+            }
+        });
+        
+        // Add specific animations for different page elements
+        
+        // Offers page elements
+        const offersBanner = document.querySelector('.offers-banner .main-offer');
+        const seasonOffer = document.querySelector('.season-offer');
+        const categoryCards = document.querySelectorAll('.category-card');
+        const referralContent = document.querySelector('.referral-content');
+        const termsContent = document.querySelector('.terms-content');
+        
+        if (offersBanner) {
+            offersBanner.classList.add('animate-on-scroll');
+            offersBanner.dataset.animation = 'fade-up';
+        }
+        
+        if (seasonOffer) {
+            seasonOffer.classList.add('animate-on-scroll');
+            seasonOffer.dataset.animation = 'fade-in';
+        }
+        
+        categoryCards.forEach((card, index) => {
+            card.classList.add('animate-on-scroll');
+            card.dataset.animation = 'fade-in';
+            card.style.animationDelay = `${index * 0.2}s`;
+        });
+        
+        if (referralContent) {
+            referralContent.classList.add('animate-on-scroll');
+            referralContent.dataset.animation = 'fade-up';
+        }
+        
+        if (termsContent) {
+            termsContent.classList.add('animate-on-scroll');
+            termsContent.dataset.animation = 'fade-up';
+        }
+        
+        // Policies page elements
+        const introContent = document.querySelector('.policies-intro .intro-content');
+        const policyNavigation = document.querySelector('.policy-navigation');
+        const contactInfo = document.querySelector('.contact-info');
+        
+        if (introContent) {
+            introContent.classList.add('animate-on-scroll');
+            introContent.dataset.animation = 'fade-up';
+        }
+        
+        if (policyNavigation) {
+            policyNavigation.classList.add('animate-on-scroll');
+            policyNavigation.dataset.animation = 'fade-down';
+        }
+        
+        if (contactInfo) {
+            contactInfo.classList.add('animate-on-scroll');
+            contactInfo.dataset.animation = 'fade-up';
+        }
+    }
+}
+
+/**
+ * Enhanced animations for elements 
+ */
+function initAnimations() {
+    // Add hover animations to cards and interactive elements
+    const interactiveElements = document.querySelectorAll('.card, .cta-link, .feature-item');
+    
+    interactiveElements.forEach(element => {
+        element.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-5px)';
+            this.style.boxShadow = 'var(--shadow-lg)';
+        });
+        
+        element.addEventListener('mouseleave', function() {
+            this.style.transform = '';
+            this.style.boxShadow = '';
+        });
+    });
+    
+    // Initialize AOS animations if library is present
+    if (typeof AOS !== 'undefined') {
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
         });
     }
 }

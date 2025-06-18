@@ -3,20 +3,23 @@
 {% block title %}| Gallery{% endblock %}
 {% block head_extra %}
 <link rel="stylesheet" href="{{ url_for('static', filename='css/gallery.css') }}">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" />
 {% endblock %}
-
 
 {% block content %}
     <!-- Page Header -->
     <section class="page-header">
         <div class="container">
-            <h1>Our Gallery</h1>
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="/">Home</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Gallery</li>
-                </ol>
-            </nav>
+            <div class="header-content">
+                <h1>Our Gallery</h1>
+                <p class="header-subtitle">Explore our latest collections and trending styles</p>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="/">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Gallery</li>
+                    </ol>
+                </nav>
+            </div>
         </div>
     </section>
 

@@ -5,18 +5,20 @@
 <link rel="stylesheet" href="{{ url_for('static', filename='css/offers.css') }}">
 {% endblock %}
 
-
 {% block content %}
     <!-- Page Header -->
     <section class="page-header">
         <div class="container">
-            <h1>Special Offers & Discounts</h1>
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="/">Home</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Offers</li>
-                </ol>
-            </nav>
+            <div class="header-content">
+                <h1>Special Offers & Discounts</h1>
+                <p class="header-subtitle">Exclusive deals that make fashion accessible to everyone</p>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="/">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Offers</li>
+                    </ol>
+                </nav>
+            </div>
         </div>
     </section>
 
@@ -180,45 +182,6 @@
 
 {% block scripts %}
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        // Summer collection countdown
-        const summerEndDate = new Date();
-        summerEndDate.setDate(summerEndDate.getDate() + 15); // 15 days from now
-        
-        // Update the countdown every second
-        const summerCountdown = setInterval(function() {
-            const now = new Date().getTime();
-            const distance = summerEndDate - now;
-            
-            // Time calculations for days, hours, minutes and seconds
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-            
-            // Display the result
-            document.getElementById("summerCountdownDays").innerText = days.toString().padStart(2, '0');
-            document.getElementById("summerCountdownHours").innerText = hours.toString().padStart(2, '0');
-            document.getElementById("summerCountdownMinutes").innerText = minutes.toString().padStart(2, '0');
-            document.getElementById("summerCountdownSeconds").innerText = seconds.toString().padStart(2, '0');
-            
-            // If the countdown is finished, clear interval
-            if (distance < 0) {
-                clearInterval(summerCountdown);
-                document.getElementById("summerCountdown").innerHTML = "<p>Offer has expired</p>";
-            }
-        }, 1000);
-        
-        // Animate the promo cards
-        const promoCards = document.querySelectorAll('.promo-card');
-        let delay = 0;
-        
-        promoCards.forEach(card => {
-            setTimeout(() => {
-                card.classList.add('animate');
-            }, delay);
-            delay += 200;
-        });
-    });
+    // The countdown and promo card animations are now handled by the initOffersPage function in main.js
 </script>
 {% endblock %}

@@ -1,1 +1,318 @@
-@import url('style.css');
+/* 
+ * FOG - Fashion of Generations
+ * Policies Page CSS
+ */
+
+/* ===== POLICIES PAGE STYLES ===== */
+
+/* Page Header (inherits base styles from style.css) */
+.page-header {
+    background-image: linear-gradient(rgba(13, 44, 84, 0.7), rgba(13, 44, 84, 0.7)), url('../images/winter-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    padding: 5rem 0;
+    text-align: center;
+    color: #fff;
+}
+
+/* Policies Introduction */
+.policies-intro {
+    padding: var(--section-spacing) 0;
+    background-color: var(--light);
+}
+
+.intro-content {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: white;
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-md);
+    text-align: center;
+}
+
+.intro-content p {
+    font-size: 1.1rem;
+    color: var(--gray-700);
+    line-height: 1.8;
+    margin-bottom: 1rem;
+}
+
+.intro-content p:last-child {
+    margin-bottom: 0;
+}
+
+.intro-content a {
+    color: var(--primary);
+    font-weight: 500;
+    transition: color var(--transition-fast);
+}
+
+.intro-content a:hover {
+    color: var(--secondary);
+    text-decoration: underline;
+}
+
+/* Policy Sections */
+.policy-sections {
+    padding: var(--section-spacing) 0;
+    background-color: var(--gray-100);
+}
+
+/* Policy Navigation */
+.policy-navigation {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 3rem;
+    padding: 1rem;
+    background-color: white;
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow-sm);
+}
+
+.policy-nav-item {
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--border-radius-sm);
+    background-color: var(--gray-200);
+    color: var(--gray-800);
+    text-decoration: none;
+    font-weight: 500;
+    transition: all var(--transition-fast);
+}
+
+.policy-nav-item:hover,
+.policy-nav-item.active {
+    background-color: var(--primary);
+    color: white;
+}
+
+/* Policy Blocks */
+.policy-block {
+    margin-bottom: 4rem;
+    padding: 3rem;
+    background-color: white;
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-md);
+    scroll-margin-top: 100px; /* For smooth scrolling */
+}
+
+.policy-block:last-child {
+    margin-bottom: 0;
+}
+
+.policy-block h2 {
+    font-family: var(--font-secondary);
+    font-size: 2rem;
+    color: var(--primary);
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid var(--gray-200);
+}
+
+/* Policy Items */
+.policy-item {
+    margin-bottom: 2rem;
+}
+
+.policy-item:last-child {
+    margin-bottom: 0;
+}
+
+.policy-item h3 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    color: var(--gray-800);
+}
+
+.policy-item p {
+    color: var(--gray-700);
+    line-height: 1.6;
+}
+
+.policy-item ul {
+    margin-top: 1rem;
+    padding-left: 2rem;
+    color: var(--gray-700);
+}
+
+.policy-item ul li {
+    margin-bottom: 0.5rem;
+}
+
+/* FAQ Section */
+.faq-item {
+    margin-bottom: 1.5rem;
+    border: 1px solid var(--gray-300);
+    border-radius: var(--border-radius-md);
+    overflow: hidden;
+}
+
+.faq-question {
+    padding: 1.5rem;
+    background-color: var(--gray-100);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color var(--transition-fast);
+}
+
+.faq-question:hover {
+    background-color: var(--gray-200);
+}
+
+.faq-question::after {
+    content: '+';
+    font-size: 1.5rem;
+    color: var(--gray-600);
+}
+
+.faq-item.active .faq-question::after {
+    content: '−';
+}
+
+.faq-question h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    color: var(--gray-800);
+}
+
+.faq-answer {
+    padding: 0;
+    max-height: 0;
+    overflow: hidden;
+    background-color: white;
+    transition: all var(--transition-default);
+}
+
+.faq-item.active .faq-answer {
+    padding: 1.5rem;
+    max-height: 200px; /* Or any suitable value */
+}
+
+.faq-answer p {
+    color: var(--gray-700);
+    margin-bottom: 0.5rem;
+}
+
+.faq-answer a {
+    color: var(--primary);
+}
+
+/* Contact Section */
+.policies-contact {
+    padding: var(--section-spacing) 0;
+    background-color: var(--primary);
+    color: white;
+}
+
+.contact-info {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.contact-info h2 {
+    font-family: var(--font-secondary);
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.contact-info p {
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    line-height: 1.7;
+}
+
+.contact-details {
+    margin-top: 2.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.contact-details p {
+    margin: 0;
+}
+
+.contact-details .address {
+    flex-basis: 100%;
+    font-style: normal;
+}
+
+.contact-details a {
+    color: var(--accent);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+}
+
+.contact-details a:hover {
+    color: white;
+    text-decoration: underline;
+}
+
+/* Animation for scroll reveal */
+.policy-block {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.policy-block.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 992px) {
+    .policy-block {
+        padding: 2rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .policy-navigation {
+        gap: 0.5rem;
+    }
+    
+    .policy-nav-item {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+    }
+    
+    .policy-block h2 {
+        font-size: 1.8rem;
+    }
+    
+    .policy-item h3 {
+        font-size: 1.2rem;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .page-header {
+        padding: 3rem 0;
+    }
+    
+    .intro-content,
+    .policy-block {
+        padding: 1.5rem;
+    }
+    
+    .policy-navigation {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .policy-nav-item {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .contact-info h2 {
+        font-size: 2rem;
+    }
+}

@@ -1,1 +1,462 @@
-@import url('style.css');
+/* 
+ * FOG - Fashion of Generations
+ * Special Offers Page CSS
+ */
+
+/* ===== OFFERS PAGE STYLES ===== */
+
+/* Page Header (inherits base styles from style.css) */
+.page-header {
+    background-image: linear-gradient(rgba(13, 44, 84, 0.7), rgba(13, 44, 84, 0.7)), url('../images/winter-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    padding: 5rem 0;
+    text-align: center;
+    color: #fff;
+}
+
+/* Main Offers Banner */
+.offers-banner {
+    padding: var(--section-spacing) 0;
+    background-color: var(--gray-100);
+}
+
+.main-offer {
+    padding: 3rem;
+    background-color: #fff;
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-md);
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.banner-content h2 {
+    font-family: var(--font-secondary);
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--primary);
+}
+
+.banner-content p {
+    font-size: 1.1rem;
+    color: var(--gray-700);
+    line-height: 1.8;
+}
+
+/* Season Banner */
+.season-banner {
+    padding: var(--section-spacing) 0;
+}
+
+.summer-collection {
+    background-color: var(--gray-100);
+}
+
+.season-offer {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    background-color: #fff;
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-md);
+    overflow: hidden;
+}
+
+.season-offer-content {
+    flex: 1;
+    padding: 3rem;
+}
+
+.season-offer-image {
+    flex: 1;
+    height: 100%;
+    overflow: hidden;
+}
+
+.season-offer-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--transition-default);
+}
+
+.season-offer-image img:hover {
+    transform: scale(1.05);
+}
+
+.season-offer h2 {
+    font-family: var(--font-secondary);
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: var(--primary);
+}
+
+.offer-highlight {
+    display: inline-block;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--secondary);
+    margin: 0.5rem 0 1.5rem;
+    padding: 0.5rem 1.5rem;
+    border: 2px solid var(--secondary);
+    border-radius: var(--border-radius-md);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.05);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Countdown Styles */
+.countdown-container {
+    margin: 2rem 0;
+    text-align: center;
+}
+
+.countdown-title {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    color: var(--gray-700);
+}
+
+.countdown {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.countdown-item {
+    background-color: var(--primary);
+    color: white;
+    border-radius: var(--border-radius-md);
+    padding: 1rem;
+    min-width: 80px;
+}
+
+.countdown-value {
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+.countdown-label {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+}
+
+/* Promotions Grid */
+.promotions {
+    padding: var(--section-spacing) 0;
+    background-color: var(--light);
+}
+
+.promotions h2 {
+    font-family: var(--font-secondary);
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    color: var(--primary);
+}
+
+.promotions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.promo-card {
+    background-color: white;
+    padding: 2rem;
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow-sm);
+    text-align: center;
+    transition: transform var(--transition-default), box-shadow var(--transition-default);
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.promo-card.animate {
+    animation: fadeInUp 0.6s forwards;
+}
+
+.promo-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-lg);
+}
+
+.promo-icon {
+    font-size: 2.5rem;
+    color: var(--primary);
+    margin-bottom: 1rem;
+}
+
+.promo-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--gray-800);
+}
+
+.promo-card p {
+    color: var(--gray-600);
+}
+
+/* Category Discounts */
+.category-discounts {
+    padding: var(--section-spacing) 0;
+    background-color: var(--gray-100);
+}
+
+.category-discounts h2 {
+    font-family: var(--font-secondary);
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    color: var(--primary);
+}
+
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.category-card {
+    height: 350px;
+    border-radius: var(--border-radius-md);
+    overflow: hidden;
+    position: relative;
+    box-shadow: var(--shadow-md);
+}
+
+.category-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.7));
+    z-index: 1;
+}
+
+.category-card.men {
+    background-image: url('../images/men-fashion.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.category-card.women {
+    background-image: url('../images/women-fashion.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.category-card.kids {
+    background-image: url('../images/kids-fashion.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.category-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 2rem;
+    color: white;
+    z-index: 2;
+    transform: translateY(0);
+    transition: transform var(--transition-default);
+}
+
+.category-card:hover .category-content {
+    transform: translateY(-20px);
+}
+
+.category-content h3 {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.discount {
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin: 0.5rem 0;
+    color: var(--accent);
+}
+
+/* Referral Program */
+.referral-program {
+    padding: var(--section-spacing) 0;
+    background-color: var(--primary);
+    color: white;
+}
+
+.referral-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.referral-content h2 {
+    font-family: var(--font-secondary);
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.referral-steps {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    margin: 2.5rem 0;
+}
+
+.referral-step {
+    text-align: center;
+}
+
+.step-number {
+    background-color: white;
+    color: var(--primary);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0 auto 1rem;
+}
+
+/* Terms and Conditions */
+.terms-conditions {
+    padding: var(--section-spacing) 0;
+    background-color: var(--light);
+}
+
+.terms-conditions h2 {
+    font-family: var(--font-secondary);
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--primary);
+}
+
+.terms-content {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 2rem;
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow-sm);
+}
+
+.terms-content ul {
+    list-style-type: none;
+}
+
+.terms-content ul li {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--gray-200);
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.terms-content ul li:last-child {
+    border-bottom: none;
+}
+
+.terms-content ul li::before {
+    content: '•';
+    color: var(--primary);
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+}
+
+/* Animation */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 992px) {
+    .season-offer {
+        flex-direction: column;
+    }
+    
+    .season-offer-content,
+    .season-offer-image {
+        width: 100%;
+    }
+    
+    .referral-steps {
+        flex-wrap: wrap;
+        gap: 2rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .countdown-item {
+        min-width: 60px;
+        padding: 0.75rem;
+    }
+    
+    .countdown-value {
+        font-size: 1.5rem;
+    }
+    
+    .category-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .referral-steps {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .page-header {
+        padding: 3rem 0;
+    }
+    
+    .banner-content h2,
+    .promotions h2,
+    .category-discounts h2,
+    .referral-content h2 {
+        font-size: 2rem;
+    }
+    
+    .season-offer-content {
+        padding: 2rem;
+    }
+    
+    .countdown {
+        gap: 0.5rem;
+    }
+    
+    .countdown-item {
+        min-width: 50px;
+        padding: 0.5rem;
+    }
+}
