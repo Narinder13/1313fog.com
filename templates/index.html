@@ -1,0 +1,232 @@
+{% extends "base.html" %}
+
+{% block head_extra %}
+    <!-- Add AOS library for scroll animations -->
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero hero-modern">
+    <div class="hero-overlay"></div>
+    <div class="container">
+        <div class="hero-content" data-aos="fade-up" data-aos-delay="200">
+            <h1>Welcome to FOG – Your Go-To Destination for Fashion</h1>
+            <p class="hero-subtitle">Discover the latest trends in fashion for men, women and kids at affordable prices.</p>
+            <div class="cta-buttons">
+                <a href="{{ url_for('gallery') }}" class="btn btn-primary btn-lg"><i class="fas fa-tshirt me-2"></i> Explore Collection</a>
+                <a href="{{ url_for('contact') }}" class="btn btn-outline btn-lg"><i class="fas fa-map-marker-alt me-2"></i> Visit Us</a>
+            </div>
+            <div class="hero-features">
+                <div class="feature-item" data-aos="fade-up" data-aos-delay="300"><i class="fas fa-truck"></i><span>Fast Delivery</span></div>
+                <div class="feature-item" data-aos="fade-up" data-aos-delay="400"><i class="fas fa-medal"></i><span>Top Quality</span></div>
+                <div class="feature-item" data-aos="fade-up" data-aos-delay="500"><i class="fas fa-tags"></i><span>Best Prices</span></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Summer Special Banner -->
+<section class="summer-banner" data-aos="fade-up">
+    <div class="container">
+        <div class="section-header">
+            <h2>SUMMER SPECIAL</h2>
+            <p class="highlight-text">FLAT 50+30% OFF</p>
+            <span class="subtitle">T&C APPLY</span>
+        </div>
+    </div>
+</section>
+
+<!-- Offers Section -->
+<section class="offers" data-aos="fade-up">
+    <div class="container">
+        <div class="offers-grid">
+            <div class="offer-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="offer-icon"><i class="fas fa-sun"></i></div>
+                <div class="offer-content">
+                    <h3>SUMMER NEW COLLECTION</h3>
+                    <p>Step into style with our exclusive summer collection! Find the latest trends that keep you cool and fashionable all season long.</p>
+                </div>
+            </div>
+            <div class="offer-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="offer-icon"><i class="fas fa-percent"></i></div>
+                <div class="offer-content">
+                    <h3>FLAT 50% OFF</h3>
+                    <p>Don't miss out! Enjoy an unbeatable FLAT 50% off on all items. Refresh your wardrobe with our premium selections at half the price.</p>
+                </div>
+            </div>
+            <div class="offer-card" data-aos="fade-up" data-aos-delay="300">
+                <div class="offer-icon"><i class="fas fa-users"></i></div>
+                <div class="offer-content">
+                    <h3>MEN | WOMEN | KIDS</h3>
+                    <p>We have something for everyone. Explore our wide range of high-quality fashion items for men, women and kids. From casual wear to elegant pieces, discover fashion for every occasion.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- About Section -->
+<section class="about-preview" data-aos="fade-up">
+    <div class="container">
+        <div class="section-header">
+            <h2>Welcome to FOG (Fashion of Generations)</h2>
+        </div>
+        <div class="about-text" data-aos="fade-up">
+            <p>At FOG, we bring you the latest and most stylish fashion clothing for men, women and kids, all at affordable prices. With five convenient locations in Punjab — Bathinda, Barnala, Zira, Kotkapura, and Mansa — our stores offer a vast selection that caters to every family member. Whether you're shopping for a casual outfit, formal wear or seasonal essentials, you'll find everything you need under one roof.</p>
+            <p>Our commitment to exceptional customer service ensures that your shopping experience is always pleasant and hassle-free. Explore our diverse collection and enjoy a shopping experience where fashion meets value. Visit us today and discover why FOG is the go-to destination for fashion in Punjab!</p>
+        </div>
+    </div>
+</section><!-- FOG Stores Section -->
+<section class="stores" data-aos="fade-up">
+    <div class="container">
+        <div class="section-header">
+            <h2>FOG STORES</h2>
+            <div class="section-divider">
+                <span></span><i class="fas fa-map-marker-alt"></i><span></span>
+            </div>
+        </div>
+        <div class="stores-grid">
+            <div class="store-card" data-aos="zoom-in" data-aos-delay="100">
+                <div class="store-icon"><i class="fas fa-map-marked-alt"></i></div>
+                <h3>BATHINDA</h3>
+                <a href="https://bit.ly/2XT9Uaw" class="btn btn-sm" target="_blank"><i class="fas fa-directions"></i> Get Directions</a>
+            </div>
+            <div class="store-card" data-aos="zoom-in" data-aos-delay="200">
+                <div class="store-icon"><i class="fas fa-map-marked-alt"></i></div>
+                <h3>BARNALA</h3>
+                <a href="https://bit.ly/2XXSEBi" class="btn btn-sm" target="_blank"><i class="fas fa-directions"></i> Get Directions</a>
+            </div>
+            <div class="store-card" data-aos="zoom-in" data-aos-delay="300">
+                <div class="store-icon"><i class="fas fa-map-marked-alt"></i></div>
+                <h3>ZIRA</h3>
+                <a href="https://bit.ly/4cLexrI" class="btn btn-sm" target="_blank"><i class="fas fa-directions"></i> Get Directions</a>
+            </div>
+            <div class="store-card" data-aos="zoom-in" data-aos-delay="400">
+                <div class="store-icon"><i class="fas fa-map-marked-alt"></i></div>
+                <h3>KOTKAPURA</h3>
+                <a href="https://bit.ly/3rGrYCb" class="btn btn-sm" target="_blank"><i class="fas fa-directions"></i> Get Directions</a>
+            </div>
+            <div class="store-card" data-aos="zoom-in" data-aos-delay="500">
+                <div class="store-icon"><i class="fas fa-map-marked-alt"></i></div>
+                <h3>MANSA</h3>
+                <a href="https://www.google.com/maps/place/FOG+Mansa/@30.0033611,75.3914022,20.5z" class="btn btn-sm" target="_blank"><i class="fas fa-directions"></i> Get Directions</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Preview Section -->
+<section class="contact-preview" data-aos="fade-up">
+    <div class="container">
+        <div class="section-header">
+            <h2>CONTACTS</h2>
+        </div>
+        <div class="contact-links">
+            <a href="https://wa.me/919858400013" class="contact-link" data-aos="zoom-in" data-aos-delay="100">
+                <i class="fab fa-whatsapp"></i>
+                <span>WhatsApp</span>
+                <small>+91 98584 00013</small>
+            </a>
+            <a href="http://www.instagram.com/1313fog" class="contact-link" data-aos="zoom-in" data-aos-delay="200">
+                <i class="fab fa-instagram"></i>
+                <span>Instagram</span>
+                <small>1313FOG</small>
+            </a>
+            <a href="https://www.facebook.com/1313fog/" class="contact-link" data-aos="zoom-in" data-aos-delay="300">
+                <i class="fab fa-facebook"></i>
+                <span>Facebook</span>
+                <small>1313FOG</small>
+            </a>
+            <a href="tel:+919858400013" class="contact-link" data-aos="zoom-in" data-aos-delay="400">
+                <i class="fas fa-phone"></i>
+                <span>Call Us</span>
+                <small>+91 98584 00013</small>
+            </a>
+        </div>
+    </div>
+</section><!-- Winter Collection Section -->
+<section class="winter-collection" data-aos="fade-up">
+    <div class="container">
+        <div class="winter-content">
+            <div class="winter-image">
+                <img src="{{ url_for('static', filename='images/winter-collection.jpg') }}" alt="Winter Collection">
+            </div>
+            <div class="winter-text-content">
+                <h2>Winter Collection Sale</h2>
+                <p>Attention all Globetrotters and Winter Enthusiasts!</p>
+                <p>As you prepare for your winter travels, don't miss out on our exclusive Winter Collection. We're excited to offer a massive 50% flat discount on our entire range of winter apparel. From cozy sweaters and stylish jackets to warm accessories, we have everything you need to stay comfortable and chic this season.</p>
+                <div class="cta-buttons">
+                    <a href="{{ url_for('offers') }}" class="btn btn-accent btn-lg">FLAT 50% OFF</a>
+                    <a href="{{ url_for('contact') }}" class="btn btn-outline btn-lg">Visit Our Store</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Fashion Collections -->
+<section class="fashion-collections" data-aos="fade-up">
+    <div class="container">
+        <!-- Women's Fashion -->
+        <div class="fashion-collection women-fashion">
+            <div class="fashion-content">
+                <h2>Discover Latest Women Fashion</h2>
+                <p class="fashion-tagline">Elevate Your Style with Our Latest Women's Fashion</p>
+                <p>Step into a world of sophistication and trendsetting style with our exclusive range of women's fashion. From chic casual wear to elegant evening dresses, our collection is designed to help you make a statement.</p>
+            </div>
+            <div class="fashion-image">
+                <img src="{{ url_for('static', filename='images/women-fashion.jpg') }}" alt="Women's Fashion">
+            </div>
+        </div>
+
+        <!-- Men's Fashion -->
+        <div class="fashion-collection men-fashion">
+            <div class="fashion-image">
+                <img src="{{ url_for('static', filename='images/men-fashion.jpg') }}" alt="Men's Fashion">
+            </div>
+            <div class="fashion-content">
+                <h2>Discover Latest Men Fashion</h2>
+                <p class="fashion-tagline">Elevate Your Style with Our Latest Men's Fashion</p>
+                <p>Discover confidence and style with our exclusive men's fashion collection. Our stores feature contemporary outfits that combine comfort with sophisticated design, from professional attire to casual everyday wear.</p>
+            </div>
+        </div>
+
+        <!-- Kids' Fashion -->
+        <div class="fashion-collection kids-fashion">
+            <div class="fashion-content">
+                <h2>Discover Latest Kids Fashion</h2>
+                <p class="fashion-tagline">Stylish and Fun Fashion for Kids</p>
+                <p>Discover the perfect blend of style and comfort with our latest collection of kids' fashion. Our stores offer trendy and playful outfits designed for every occasion, from casual wear to special event attire.</p>
+            </div>
+            <div class="fashion-image">
+                <img src="{{ url_for('static', filename='images/kids-fashion.jpg') }}" alt="Kids' Fashion">
+            </div>
+        </div>
+        
+        <div class="fashion-collection-footer">
+            <div class="cta-buttons">
+                <a href="{{ url_for('offers') }}" class="btn btn-primary btn-lg">Click For Offers</a>
+                <a href="https://www.google.com/maps/place/Fog+Bathinda+(1313+FOG)/@30.222621,74.9586755,21z/" class="btn btn-outline btn-lg" target="_blank">Review us on Google</a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block scripts_extra %}
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Initialize AOS animation library with delay to ensure proper DOM loading
+        setTimeout(function() {
+            AOS.init({
+                duration: 800,
+                easing: 'ease-in-out',
+                once: true,
+                disable: 'mobile'  // Disable on mobile for better performance
+            });
+        }, 100);
+    });
+</script>
+{% endblock %}

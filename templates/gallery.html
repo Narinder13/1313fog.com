@@ -1,0 +1,401 @@
+{% extends "base.html" %}
+
+{% block title %}| Gallery{% endblock %}
+
+{% block content %}
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Our Gallery</h1>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Gallery</li>
+                </ol>
+            </nav>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery-section">
+        <div class="container">
+            <div class="gallery-filters">
+                <button class="filter-btn active" data-filter="all">All Collections</button>
+                <button class="filter-btn" data-filter="men">Men's Collection</button>
+                <button class="filter-btn" data-filter="women">Women's Collection</button>
+                <button class="filter-btn" data-filter="kids">Kids Collection</button>
+            </div>
+            
+            <div class="gallery-grid">
+                <!-- Men's Collection -->
+                <div class="gallery-item men">                    <a href="{{ url_for('static', filename='images/gallery/men/item-1.jpg') }}" class="gallery-link" data-caption="Men's Fashion - Casual Wear">
+                        <img src="{{ url_for('static', filename='images/gallery/men/item-1.jpg') }}" alt="Men's Fashion Item 1" class="gallery-img">
+                        <div class="gallery-overlay">
+                            <div class="overlay-content">
+                                <h3>Men's Casual Wear</h3>
+                                <p>Summer Collection</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="gallery-item men">
+                    <a href="/static/images/gallery/men/item-2.jpg" class="gallery-link" data-caption="Men's Fashion - Formal Wear">
+                        <img src="/static/images/gallery/men/item-2.jpg" alt="Men's Fashion Item 2" class="gallery-img">
+                        <div class="gallery-overlay">
+                            <div class="overlay-content">
+                                <h3>Men's Formal Wear</h3>
+                                <p>Office Collection</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="gallery-item men">
+                    <a href="/static/images/gallery/men/item-3.jpg" class="gallery-link" data-caption="Men's Fashion - Winter Collection">
+                        <img src="/static/images/gallery/men/item-3.jpg" alt="Men's Fashion Item 3" class="gallery-img">
+                        <div class="gallery-overlay">
+                            <div class="overlay-content">
+                                <h3>Men's Winter Collection</h3>
+                                <p>Jackets & Sweaters</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="gallery-item men">
+                    <a href="/static/images/gallery/men/item-4.jpg" class="gallery-link" data-caption="Men's Fashion - Trendy Styles">
+                        <img src="/static/images/gallery/men/item-4.jpg" alt="Men's Fashion Item 4" class="gallery-img">
+                        <div class="gallery-overlay">
+                            <div class="overlay-content">
+                                <h3>Men's Trendy Styles</h3>
+                                <p>Latest Collection</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="gallery-item men">
+                    <a href="/static/images/gallery/men/item-5.jpg" class="gallery-link" data-caption="Men's Fashion - Accessories">
+                        <img src="/static/images/gallery/men/item-5.jpg" alt="Men's Fashion Item 5" class="gallery-img">
+                        <div class="gallery-overlay">
+                            <div class="overlay-content">
+                                <h3>Men's Accessories</h3>
+                                <p>Belts, Sunglasses & More</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="gallery-item men">
+                    <a href="/static/images/gallery/men/item-6.jpg" class="gallery-link" data-caption="Men's Fashion - Ethnic Wear">
+                        <img src="/static/images/gallery/men/item-6.jpg" alt="Men's Fashion Item 6" class="gallery-img">
+                        <div class="gallery-overlay">
+                            <div class="overlay-content">
+                                <h3>Men's Ethnic Wear</h3>
+                                <p>Festival Collection</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+                <!-- Women's Collection -->
+                <div class="gallery-item women">
+                    <a href="/static/images/gallery/women/item-1.jpg" class="gallery-link" data-caption="Women's Fashion - Casual Wear">
+                        <img src="/static/images/gallery/women/item-1.jpg" alt="Women's Fashion Item 1" class="gallery-img">
+                        <div class="gallery-overlay">
+                            <div class="overlay-content">
+                                <h3>Women's Casual Wear</h3>
+                                <p>Summer Collection</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="gallery-item women">
+                    <a href="/static/images/gallery/women/item-2.jpg" class="gallery-link" data-caption="Women's Fashion - Formal Wear">
+                        <img src="/static/images/gallery/women/item-2.jpg" alt="Women's Fashion Item 2" class="gallery-img">
+                        <div class="gallery-overlay">
+                            <div class="overlay-content">
+                                <h3>Women's Formal Wear</h3>
+                                <p>Office Collection</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="gallery-item women">
+                    <a href="/static/images/gallery/women/item-3.jpg" class="gallery-link" data-caption="Women's Fashion - Winter Collection">
+                        <img src="/static/images/gallery/women/item-3.jpg" alt="Women's Fashion Item 3" class="gallery-img">
+                        <div class="gallery-overlay">
+                            <div class="overlay-content">
+                                <h3>Women's Winter Collection</h3>
+                                <p>Jackets & Sweaters</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="gallery-item women">
+                    <a href="/static/images/gallery/women/item-4.jpg" class="gallery-link" data-caption="Women's Fashion - Trendy Styles">
+                        <img src="/static/images/gallery/women/item-4.jpg" alt="Women's Fashion Item 4" class="gallery-img">
+                        <div class="gallery-overlay">
+                            <div class="overlay-content">
+                                <h3>Women's Trendy Styles</h3>
+                                <p>Latest Collection</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="gallery-item women">
+                    <a href="/static/images/gallery/women/item-5.jpg" class="gallery-link" data-caption="Women's Fashion - Accessories">
+                        <img src="/static/images/gallery/women/item-5.jpg" alt="Women's Fashion Item 5" class="gallery-img">
+                        <div class="gallery-overlay">
+                            <div class="overlay-content">
+                                <h3>Women's Accessories</h3>
+                                <p>Jewelry, Handbags & More</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="gallery-item women">
+                    <a href="/static/images/gallery/women/item-6.jpg" class="gallery-link" data-caption="Women's Fashion - Ethnic Wear">
+                        <img src="/static/images/gallery/women/item-6.jpg" alt="Women's Fashion Item 6" class="gallery-img">
+                        <div class="gallery-overlay">
+                            <div class="overlay-content">
+                                <h3>Women's Ethnic Wear</h3>
+                                <p>Festival Collection</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+                <!-- Kids Collection -->
+                <div class="gallery-item kids">
+                    <a href="/static/images/gallery/kids/item-1.jpg" class="gallery-link" data-caption="Kids Fashion - Casual Wear">
+                        <img src="/static/images/gallery/kids/item-1.jpg" alt="Kids Fashion Item 1" class="gallery-img">
+                        <div class="gallery-overlay">
+                            <div class="overlay-content">
+                                <h3>Kids Casual Wear</h3>
+                                <p>Everyday Collection</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="gallery-item kids">
+                    <a href="/static/images/gallery/kids/item-2.jpg" class="gallery-link" data-caption="Kids Fashion - School Wear">
+                        <img src="/static/images/gallery/kids/item-2.jpg" alt="Kids Fashion Item 2" class="gallery-img">
+                        <div class="gallery-overlay">
+                            <div class="overlay-content">
+                                <h3>Kids School Wear</h3>
+                                <p>Back to School Collection</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="gallery-item kids">
+                    <a href="/static/images/gallery/kids/item-3.jpg" class="gallery-link" data-caption="Kids Fashion - Winter Collection">
+                        <img src="/static/images/gallery/kids/item-3.jpg" alt="Kids Fashion Item 3" class="gallery-img">
+                        <div class="gallery-overlay">
+                            <div class="overlay-content">
+                                <h3>Kids Winter Collection</h3>
+                                <p>Jackets & Sweaters</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="gallery-item kids">
+                    <a href="/static/images/gallery/kids/item-4.jpg" class="gallery-link" data-caption="Kids Fashion - Party Wear">
+                        <img src="/static/images/gallery/kids/item-4.jpg" alt="Kids Fashion Item 4" class="gallery-img">
+                        <div class="gallery-overlay">
+                            <div class="overlay-content">
+                                <h3>Kids Party Wear</h3>
+                                <p>Special Occasion Collection</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="gallery-item kids">
+                    <a href="/static/images/gallery/kids/item-5.jpg" class="gallery-link" data-caption="Kids Fashion - Accessories">
+                        <img src="/static/images/gallery/kids/item-5.jpg" alt="Kids Fashion Item 5" class="gallery-img">
+                        <div class="gallery-overlay">
+                            <div class="overlay-content">
+                                <h3>Kids Accessories</h3>
+                                <p>Bags, Caps & More</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="gallery-item kids">
+                    <a href="/static/images/gallery/kids/item-6.jpg" class="gallery-link" data-caption="Kids Fashion - Sports Wear">
+                        <img src="/static/images/gallery/kids/item-6.jpg" alt="Kids Fashion Item 6" class="gallery-img">
+                        <div class="gallery-overlay">
+                            <div class="overlay-content">
+                                <h3>Kids Sports Wear</h3>
+                                <p>Active Collection</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <div class="lightbox-content">
+            <span class="lightbox-close">&times;</span>
+            <img src="" alt="" class="lightbox-image">
+            <div class="lightbox-caption"></div>
+            <button class="lightbox-prev">&lt;</button>
+            <button class="lightbox-next">&gt;</button>
+        </div>
+    </div>
+
+    <!-- Collection Description -->
+    <section class="collection-description">
+        <div class="container">
+            <div class="collection-info">
+                <h2>Discover Our Fashion Collections</h2>
+                <p>At FOG, we take pride in offering a diverse range of fashion collections catering to men, women, and kids. Our collections are carefully curated to reflect the latest trends while ensuring comfort, quality, and affordability.</p>
+                
+                <div class="collection-detail">
+                    <h3>Men's Collection</h3>
+                    <p>Our men's collection features everything from casual everyday wear to formal attire for special occasions. Browse through our selection of jeans, shirts, t-shirts, trousers, track pants, sweatshirts, hoodies, and jackets. We also offer a range of accessories including belts, perfumes, deodorants, and sunglasses to complete your look.</p>
+                </div>
+                
+                <div class="collection-detail">
+                    <h3>Women's Collection</h3>
+                    <p>Step into a world of sophistication and trendsetting style with our exclusive range of women's fashion. From chic casual wear and elegant evening dresses to on-trend seasonal pieces, our collection is designed to help you make a statement. Discover high-quality garments that enhance your personal style and keep you at the forefront of fashion.</p>
+                </div>
+                
+                <div class="collection-detail">
+                    <h3>Kids Collection</h3>
+                    <p>Our kids collection offers the perfect blend of style and comfort. Find everything from casual wear and school essentials to special event attire. With high-quality fabrics and fun designs, we make it easy to keep your little ones looking fashionable and feeling great.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Gallery Filtering
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const galleryItems = document.querySelectorAll('.gallery-item');
+        
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                // Remove active class from all buttons
+                filterBtns.forEach(btn => btn.classList.remove('active'));
+                
+                // Add active class to clicked button
+                this.classList.add('active');
+                
+                // Get filter value
+                const filter = this.getAttribute('data-filter');
+                
+                // Filter gallery items
+                galleryItems.forEach(item => {
+                    if (filter === 'all' || item.classList.contains(filter)) {
+                        item.style.display = 'block';
+                        setTimeout(() => {
+                            item.style.opacity = '1';
+                            item.style.transform = 'scale(1)';
+                        }, 50);
+                    } else {
+                        item.style.opacity = '0';
+                        item.style.transform = 'scale(0.8)';
+                        setTimeout(() => {
+                            item.style.display = 'none';
+                        }, 300);
+                    }
+                });
+            });
+        });
+        
+        // Lightbox
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImage = document.querySelector('.lightbox-image');
+        const lightboxCaption = document.querySelector('.lightbox-caption');
+        const lightboxClose = document.querySelector('.lightbox-close');
+        const lightboxPrev = document.querySelector('.lightbox-prev');
+        const lightboxNext = document.querySelector('.lightbox-next');
+        const galleryLinks = document.querySelectorAll('.gallery-link');
+        
+        let currentImageIndex = 0;
+        let filteredLinks = [...galleryLinks];
+        
+        galleryLinks.forEach((link, index) => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Filter links based on currently visible items
+                const activeFilter = document.querySelector('.filter-btn.active').getAttribute('data-filter');
+                filteredLinks = [...galleryLinks].filter(link => {
+                    const linkItem = link.closest('.gallery-item');
+                    return activeFilter === 'all' || linkItem.classList.contains(activeFilter);
+                });
+                
+                currentImageIndex = filteredLinks.indexOf(this);
+                
+                openLightbox(this.getAttribute('href'), this.getAttribute('data-caption'));
+            });
+        });
+        
+        lightboxClose.addEventListener('click', closeLightbox);
+        
+        lightboxPrev.addEventListener('click', function() {
+            currentImageIndex = (currentImageIndex - 1 + filteredLinks.length) % filteredLinks.length;
+            const link = filteredLinks[currentImageIndex];
+            openLightbox(link.getAttribute('href'), link.getAttribute('data-caption'));
+        });
+        
+        lightboxNext.addEventListener('click', function() {
+            currentImageIndex = (currentImageIndex + 1) % filteredLinks.length;
+            const link = filteredLinks[currentImageIndex];
+            openLightbox(link.getAttribute('href'), link.getAttribute('data-caption'));
+        });
+        
+        // Close lightbox when clicking outside the image
+        lightbox.addEventListener('click', function(e) {
+            if (e.target === lightbox) {
+                closeLightbox();
+            }
+        });
+        
+        // Keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            if (!lightbox.classList.contains('active')) return;
+            
+            if (e.key === 'Escape') {
+                closeLightbox();
+            } else if (e.key === 'ArrowLeft') {
+                lightboxPrev.click();
+            } else if (e.key === 'ArrowRight') {
+                lightboxNext.click();
+            }
+        });
+        
+        function openLightbox(src, caption) {
+            lightboxImage.setAttribute('src', src);
+            lightboxCaption.textContent = caption || '';
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeLightbox() {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+    });
+</script>
+{% endblock %}

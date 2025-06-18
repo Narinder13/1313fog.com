@@ -1,0 +1,220 @@
+{% extends "base.html" %}
+
+{% block title %}| Special Offers{% endblock %}
+
+{% block content %}
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Special Offers & Discounts</h1>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Offers</li>
+                </ol>
+            </nav>
+        </div>
+    </section>
+
+    <!-- Main Offers Banner -->
+    <section class="offers-banner">
+        <div class="container">
+            <div class="main-offer">
+                <div class="banner-content">
+                    <h2>Exclusive Offers & Savings Deals</h2>
+                    <p>Explore our latest offers and unbeatable savings on a wide range of fashion items for men, women and kids. From stylish apparel to trendy accessories, we bring you the best deals to elevate your wardrobe. Don't miss out on our special discounts and seasonal promotions, designed to help you look fabulous while saving more. Check back regularly for new offers and limited-time deals that you won't want to miss!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Summer Collection Banner -->
+    <section class="season-banner summer-collection">
+        <div class="container">
+            <div class="season-offer">
+                <div class="season-offer-content">
+                    <h2>SUMMER COLLECTION</h2>
+                    <div class="offer-highlight">FLAT 50% OFF</div>
+                    <p>Step into summer with our exclusive collection featuring the latest trends to keep you cool and stylish.</p>
+                    <div class="countdown-container">
+                        <div class="countdown-title">Offer Ends In:</div>
+                        <div class="countdown" id="summerCountdown">
+                            <div class="countdown-item">
+                                <div class="countdown-value" id="summerCountdownDays">00</div>
+                                <div class="countdown-label">Days</div>
+                            </div>
+                            <div class="countdown-item">
+                                <div class="countdown-value" id="summerCountdownHours">00</div>
+                                <div class="countdown-label">Hours</div>
+                            </div>
+                            <div class="countdown-item">
+                                <div class="countdown-value" id="summerCountdownMinutes">00</div>
+                                <div class="countdown-label">Minutes</div>
+                            </div>
+                            <div class="countdown-item">
+                                <div class="countdown-value" id="summerCountdownSeconds">00</div>
+                                <div class="countdown-label">Seconds</div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="/gallery.html" class="btn btn-light">Shop Now</a>
+                </div>                <div class="season-offer-image">
+                    <img src="{{ url_for('static', filename='images/banners/banner-1.jpg') }}" alt="Summer Collection">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Promotions Grid -->
+    <section class="promotions">
+        <div class="container">
+            <h2>Current Promotions</h2>
+            <div class="promotions-grid">
+                <div class="promo-card">
+                    <div class="promo-icon"><i class="fas fa-tshirt"></i></div>
+                    <h3>Buy 2 Get 1 Free</h3>
+                    <p>On selected t-shirts and casual wear</p>
+                </div>
+                
+                <div class="promo-card">
+                    <div class="promo-icon"><i class="fas fa-percentage"></i></div>
+                    <h3>FLAT 30% OFF</h3>
+                    <p>On all winter wear items</p>
+                </div>
+                
+                <div class="promo-card">
+                    <div class="promo-icon"><i class="fas fa-tags"></i></div>
+                    <h3>Special Discounts</h3>
+                    <p>Up to 40% off on accessories</p>
+                </div>
+                
+                <div class="promo-card">
+                    <div class="promo-icon"><i class="fas fa-gift"></i></div>
+                    <h3>Free Gift</h3>
+                    <p>With purchases over ₹3000</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Category Discounts -->
+    <section class="category-discounts">
+        <div class="container">
+            <h2>Category Special Offers</h2>
+            <div class="category-grid">
+                <div class="category-card men">
+                    <div class="category-content">
+                        <h3>Men's Fashion</h3>
+                        <div class="discount">30% OFF</div>
+                        <p>On selected brands</p>
+                        <a href="/gallery.html" class="btn btn-outline-light">Shop Men</a>
+                    </div>
+                </div>
+                
+                <div class="category-card women">
+                    <div class="category-content">
+                        <h3>Women's Fashion</h3>
+                        <div class="discount">40% OFF</div>
+                        <p>On new arrivals</p>
+                        <a href="/gallery.html" class="btn btn-outline-light">Shop Women</a>
+                    </div>
+                </div>
+                
+                <div class="category-card kids">
+                    <div class="category-content">
+                        <h3>Kids' Fashion</h3>
+                        <div class="discount">50% OFF</div>
+                        <p>On selected items</p>
+                        <a href="/gallery.html" class="btn btn-outline-light">Shop Kids</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Referral Program -->
+    <section class="referral-program">
+        <div class="container">
+            <div class="referral-content">
+                <h2>Refer & Earn Program</h2>
+                <p>Refer a friend and both of you get ₹500 off on your next purchase!</p>
+                <div class="referral-steps">
+                    <div class="referral-step">
+                        <div class="step-number">1</div>
+                        <p>Refer your friends</p>
+                    </div>
+                    <div class="referral-step">
+                        <div class="step-number">2</div>
+                        <p>They make a purchase</p>
+                    </div>
+                    <div class="referral-step">
+                        <div class="step-number">3</div>
+                        <p>Both get ₹500 off</p>
+                    </div>
+                </div>
+                <a href="/contact.html" class="btn btn-primary">Learn More</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Terms and Conditions -->
+    <section class="terms-conditions">
+        <div class="container">
+            <h2>Terms & Conditions</h2>
+            <div class="terms-content">
+                <ul>
+                    <li>All offers are valid until stocks last</li>
+                    <li>Discounts cannot be combined with any other offer</li>
+                    <li>Management reserves the right to modify or withdraw any offer without prior notice</li>
+                    <li>For specific terms related to each offer, please inquire in-store</li>
+                    <li>Return and exchange policies apply as per our standard terms</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Summer collection countdown
+        const summerEndDate = new Date();
+        summerEndDate.setDate(summerEndDate.getDate() + 15); // 15 days from now
+        
+        // Update the countdown every second
+        const summerCountdown = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = summerEndDate - now;
+            
+            // Time calculations for days, hours, minutes and seconds
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            
+            // Display the result
+            document.getElementById("summerCountdownDays").innerText = days.toString().padStart(2, '0');
+            document.getElementById("summerCountdownHours").innerText = hours.toString().padStart(2, '0');
+            document.getElementById("summerCountdownMinutes").innerText = minutes.toString().padStart(2, '0');
+            document.getElementById("summerCountdownSeconds").innerText = seconds.toString().padStart(2, '0');
+            
+            // If the countdown is finished, clear interval
+            if (distance < 0) {
+                clearInterval(summerCountdown);
+                document.getElementById("summerCountdown").innerHTML = "<p>Offer has expired</p>";
+            }
+        }, 1000);
+        
+        // Animate the promo cards
+        const promoCards = document.querySelectorAll('.promo-card');
+        let delay = 0;
+        
+        promoCards.forEach(card => {
+            setTimeout(() => {
+                card.classList.add('animate');
+            }, delay);
+            delay += 200;
+        });
+    });
+</script>
+{% endblock %}

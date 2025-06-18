@@ -1,0 +1,148 @@
+{% extends "base.html" %}
+
+{% block title %}| About Us{% endblock %}
+
+{% block content %}
+    <!-- Hero Section -->
+    <section class="page-header">
+        <div class="container">
+            <h1>About FOG</h1>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">About Us</li>
+                </ol>
+            </nav>
+        </div>
+    </section>
+    
+    <!-- About Content -->
+    <section class="about-section">
+        <div class="container">
+            <div class="about-intro">
+                <div class="about-intro-text">
+                    <h2>Welcome to FOG</h2>
+                    <p>FOG (Fashion of Generations) is a premier Indian multi-brand chain store with a strong presence across Punjab. Since 1998, we've been bringing style and quality to fashion-conscious customers of all ages.</p>
+                    <p>We offer a comprehensive range of ready-made garments for Men, Women and Kids including premium Jeans, Shirts, T-shirts, Trousers, Track-pants, Sweat-shirts, Hoodies, and Jackets. Our stores also feature a curated selection of accessories including Belts, Perfumes, Deodorants, Sunglasses, and more.</p>
+                    <p>At FOG, we believe that fashion is for everyone, and our mission is to make stylish, quality clothing accessible to all.</p>
+                </div>
+                <div class="about-intro-image">
+                    <div class="manager-profile">
+                        <img src="{{ url_for('static', filename='images/manager.jpg') }}" alt="Narinder Singh, General Manager" class="manager-img">
+                        <div class="manager-info">
+                            <h3>Narinder Singh</h3>
+                            <p>General Manager</p>
+                            <p><small>FOG, Bathinda, Punjab</small></p>
+                            <div class="manager-social">
+                                <a href="https://www.facebook.com/narinder0064" target="_blank" aria-label="Facebook Profile"><i class="fab fa-facebook"></i></a>
+                                <a href="https://www.linkedin.com/in/narinder-singh-158237161/" target="_blank" aria-label="LinkedIn Profile"><i class="fab fa-linkedin"></i></a>
+                                <a href="https://www.instagram.com/nindifog" target="_blank" aria-label="Instagram Profile"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="about-story">
+                <h2>Our Journey</h2>
+                <div class="story-content">
+                    <p>In 1998, our journey began with a simple dream – to provide quality, stylish, and affordable ready-made garments to the people of Punjab. What started as a humble enterprise has since evolved into a thriving business, with a presence in multiple cities across this vibrant region.</p>
+                    
+                    <p>Our founders, driven by a passion for fashion and a commitment to customer satisfaction, embarked on this exciting adventure. They saw an opportunity to bridge the gap between fashion-forward clothing and accessibility, and thus, our story began.</p>
+                    
+                    <p>We meticulously curated a range of garments that catered to the diverse tastes and preferences of our customers. Our dedication to quality craftsmanship, attention to detail, and a keen eye for emerging trends quickly set us apart in the industry.</p>
+                    
+                    <p>As we continued to grow, we opened our doors in multiple cities throughout Punjab, spreading the joy of fashion and clothing to more and more communities. With each new store, we became not just a retailer but an integral part of the fabric of these cities, a trusted destination for those seeking the latest styles and timeless classics.</p>
+                    
+                    <p>Over the years, our business has flourished thanks to the unwavering support and loyalty of our valued customers. We have expanded our product offerings, introduced innovative services, and adapted to the ever-changing landscape of the fashion industry.</p>
+                    
+                    <p>Today, we take immense pride in the journey we've undertaken, the milestones we've achieved, and the enduring relationships we've built. Our commitment to providing exceptional garments, exceptional service, and an exceptional shopping experience remains as strong as it was in 1998.</p>
+                    
+                    <p>As we look to the future, we are excited to continue our evolution, to push the boundaries of fashion, and to connect with even more communities across Punjab. Our story is a testament to our dedication, and our success is a reflection of the trust you have placed in us. Thank you for being a part of our incredible journey.</p>
+                    
+                    <p>We invite you to explore our website and our stores, discover the latest trends, and be a part of our ongoing story. Together, we'll continue to make fashion accessible, stylish, and enjoyable for everyone in Punjab and beyond.</p>
+                </div>
+            </div>
+              <!-- Store Locations -->
+            <div class="store-locations">
+                <h2>Our Store Locations</h2>
+                <div class="locations-grid" id="locationsGrid">
+                    <div class="location-card" data-delay="100">
+                        <div class="location-content">
+                            <div class="location-icon">
+                                <i class="fas fa-store"></i>
+                            </div>
+                            <h3>Bathinda</h3>
+                            <p>100 Feet Road, Near Hanuman Mandir</p>
+                        </div>
+                        <a href="https://bit.ly/2XT9Uaw" class="location-link" target="_blank">
+                            <i class="fas fa-map-marker-alt"></i> Get Directions
+                        </a>
+                    </div>
+                    
+                    <div class="location-card" data-delay="200">
+                        <div class="location-content">
+                            <div class="location-icon">
+                                <i class="fas fa-store"></i>
+                            </div>
+                            <h3>Barnala</h3>
+                            <p>Main Market, Gandhi Chowk</p>
+                        </div>
+                        <a href="https://bit.ly/2XXSEBi" class="location-link" target="_blank">
+                            <i class="fas fa-map-marker-alt"></i> Get Directions
+                        </a>
+                    </div>
+                    
+                    <div class="location-card" data-delay="300">
+                        <div class="location-content">
+                            <div class="location-icon">
+                                <i class="fas fa-store"></i>
+                            </div>
+                            <h3>Zira</h3>
+                            <p>Old Town Market, Near Bus Stand</p>
+                        </div>
+                        <a href="https://bit.ly/4cLexrI" class="location-link" target="_blank">
+                            <i class="fas fa-map-marker-alt"></i> Get Directions
+                        </a>
+                    </div>
+                    
+                    <div class="location-card" data-delay="400">
+                        <div class="location-content">
+                            <div class="location-icon">
+                                <i class="fas fa-store"></i>
+                            </div>
+                            <h3>Kotkapura</h3>
+                            <p>Singh Plaza, Main Bazar</p>
+                        </div>
+                        <a href="https://bit.ly/3rGrYCb" class="location-link" target="_blank">
+                            <i class="fas fa-map-marker-alt"></i> Get Directions
+                        </a>
+                    </div>
+                    
+                    <div class="location-card" data-delay="500">
+                        <div class="location-content">
+                            <div class="location-icon">
+                                <i class="fas fa-store"></i>
+                            </div>
+                            <h3>Mansa</h3>
+                            <p>Water Works Road, Near Civil Hospital</p>
+                        </div>
+                        <a href="https://www.google.com/maps/place/FOG+Mansa/@30.0033611,75.3914022,20.5z" class="location-link" target="_blank">
+                            <i class="fas fa-map-marker-alt"></i> Get Directions
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="about-contact">
+                <h2>Get In Touch</h2>
+                <p>We're always looking for new and exciting opportunities. Let's connect to discuss fashion, partnerships, or just to say hello!</p>
+                <div class="contact-info">
+                    <p><i class="fas fa-envelope"></i> <a href="mailto:1313fog@gmail.com">1313fog@gmail.com</a></p>
+                    <p><i class="fas fa-phone"></i> <a href="tel:+919888369103">+91 98883 69103</a></p>
+                </div>
+                <a href="{{ url_for('contact') }}" class="btn btn-primary mt-4">Contact Us Now</a>
+            </div>
+        </div>
+    </section>
+{% endblock %}
