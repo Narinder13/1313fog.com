@@ -9,7 +9,6 @@ document.addEventListener('DOMContentLoaded', function() {
     initNavbar();
     initScrollToTop();
     initAnimations();
-    initCounters();
     initGalleryFilter();
     initAboutPageAnimations();
     initLocationCards(); // Initialize location card animations
@@ -216,65 +215,6 @@ function initAboutPageAnimations() {
         
         // Animate contact section
         reveal(aboutContact, 2400);
-    }
-}
-
-/**
- * Initialize animated counters for stats section
- */
-function initCounters() {
-    // Support both old and new counter class names
-    const counterElements = document.querySelectorAll('.stat-count, .stat-number');
-    let hasAnimated = false;
-    
-    function animateCounters() {
-        if (hasAnimated) return;
-        
-        counterElements.forEach(counter => {
-            const targetValue = parseInt(counter.getAttribute('data-counter') || counter.getAttribute('data-target'), 10);
-            if (!targetValue) return; // Skip if no target/counter value
-            
-            const duration = 2000; // 2 seconds
-            const startTime = performance.now();
-            const startValue = 0;
-            
-            function updateCounter(currentTime) {
-                const elapsedTime = currentTime - startTime;
-                const progress = Math.min(elapsedTime / duration, 1);
-                
-                // Easing function for more natural counting
-                const easedProgress = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
-                const currentValue = Math.floor(startValue + (targetValue - startValue) * easedProgress);
-                
-                counter.textContent = currentValue.toLocaleString();
-                
-                if (progress < 1) {
-                    requestAnimationFrame(updateCounter);
-                }
-            }
-            
-            requestAnimationFrame(updateCounter);
-        });
-        
-        hasAnimated = true;
-    }
-    
-    // Intersection Observer to trigger counter animation when stats section is visible
-    if (counterElements.length > 0) {
-        const statsSection = document.querySelector('.stats-section');
-        
-        if (statsSection) {
-            const observer = new IntersectionObserver((entries) => {
-                if (entries[0].isIntersecting) {
-                    animateCounters();
-                }
-            }, { threshold: 0.3 });
-            
-            observer.observe(statsSection);
-        } else {
-            // If no stats section, still try to animate any counters in view
-            animateCounters();
-        }
     }
 }
 

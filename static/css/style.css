@@ -23,6 +23,12 @@
     --gray-700: #495057;
     --gray-800: #343a40;
     --gray-900: #212529;
+
+    /* Legacy variable aliases */
+    --primary-color: var(--primary);
+    --secondary-color: var(--secondary);
+    --accent-color: var(--accent);
+    --primary-rgb: 13, 44, 84;
     
     /* Typography */
     --font-primary: 'Montserrat', sans-serif;
@@ -239,10 +245,6 @@ section + section {
     box-shadow: var(--shadow-md);
 }
 
-.btn-lg {
-    padding: 1rem 2rem;
-    font-size: 1.1rem;
-}
 
 .btn-sm {
     padding: 0.5rem 1rem;
@@ -1261,12 +1263,26 @@ section + section {
 
 /* Section header general styles */
 .section-header {
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
     text-align: center;
 }
 
 .section-header h2 {
+    font-size: 2rem;
+    color: var(--primary);
     margin-bottom: 0.5rem;
+    position: relative;
+}
+
+.section-header h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background-color: var(--accent);
 }
 
 .fashion-tagline {
@@ -2190,35 +2206,6 @@ section + section {
     position: relative;
 }
 
-.section-header {
-    text-align: center;
-    margin-bottom: 3rem;
-}
-
-.section-header h2 {
-    font-size: 2rem;
-    color: var(--primary-color);
-    position: relative;
-    display: inline-block;
-    margin-bottom: 0.5rem;
-}
-
-.section-header h2:after {
-    content: "";
-    position: absolute;
-    bottom: -15px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 50px;
-    height: 3px;
-    background-color: var(--accent-color);
-}
-
-.section-subtitle {
-    color: #666;
-    max-width: 700px;
-    margin: 1.5rem auto 0;
-}
 
 .store-map {
     height: 400px;
