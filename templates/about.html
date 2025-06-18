@@ -1,6 +1,10 @@
 {% extends "base.html" %}
 
 {% block title %}| About Us{% endblock %}
+{% block head_extra %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/about.css') }}">
+{% endblock %}
+
 
 {% block content %}
     <!-- Hero Section -->

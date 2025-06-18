@@ -1,6 +1,10 @@
 {% extends "base.html" %}
 
 {% block title %}| Special Offers{% endblock %}
+{% block head_extra %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/offers.css') }}">
+{% endblock %}
+
 
 {% block content %}
     <!-- Page Header -->
