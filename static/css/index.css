@@ -240,6 +240,105 @@
     margin-bottom: 1rem;
 }
 
+/* Offers section */
+.offers {
+    padding: 5rem 0;
+}
+
+.offers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 2rem;
+}
+
+.offer-card {
+    background-color: #fff;
+    padding: 2rem;
+    text-align: center;
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow-sm);
+    transition: all var(--transition-default);
+}
+
+.offer-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.offer-icon {
+    font-size: 2rem;
+    color: var(--secondary);
+    margin-bottom: 1rem;
+}
+
+/* Winter collection */
+.winter-collection {
+    padding: var(--section-spacing) 0;
+    background-color: var(--gray-100);
+}
+
+.winter-content {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.winter-image {
+    flex: 1 1 350px;
+}
+
+.winter-image img {
+    width: 100%;
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-md);
+}
+
+.winter-text-content {
+    flex: 1 1 350px;
+}
+
+.winter-text-content h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+/* Fashion collections */
+.fashion-collections {
+    padding: var(--section-spacing) 0;
+}
+
+.fashion-collection {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    margin-bottom: 4rem;
+}
+
+.fashion-collection:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+.fashion-image {
+    flex: 1 1 350px;
+}
+
+.fashion-image img {
+    width: 100%;
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-md);
+}
+
+.fashion-content {
+    flex: 1 1 350px;
+}
+
+.fashion-collection-footer {
+    text-align: center;
+}
+
+
 /* Testimonials */
 .testimonials-section {
     background-color: var(--primary);
@@ -401,9 +500,15 @@
     .hero h1 {
         font-size: 2.5rem;
     }
-    
+
     .collections-grid {
         grid-template-columns: repeat(2, 1fr);
+    }
+
+    .winter-content,
+    .fashion-collection {
+        flex-direction: column;
+        text-align: center;
     }
 }
 
@@ -432,14 +537,18 @@
         padding: 1rem;
         white-space: nowrap;
     }
-    
+
     .testimonials-grid {
         grid-template-columns: 1fr;
     }
-    
+
     .contact-link {
         width: 100%;
         max-width: 220px;
+    }
+
+    .offers-grid {
+        grid-template-columns: 1fr;
     }
 }
 
@@ -451,9 +560,14 @@
     .hero-subtitle {
         font-size: 1.1rem;
     }
-    
+
     .collection-card {
         height: 300px;
+    }
+
+    .winter-image,
+    .fashion-image {
+        flex: 1 1 100%;
     }
 }
 
